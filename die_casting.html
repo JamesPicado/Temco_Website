@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Die Casting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .service-card {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      background-color: #eaeaea;
+    }
+
+    .service-card p {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .service-card span {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ACCORDION */
+    .accordion-item {
+      border-top: 1px solid #ccc;
+      padding: 15px 0;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .accordion-header .icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-weight: bold;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .accordion-header span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .accordion-content {
+      display: none;
+      margin-top: 10px;
+      padding-left: 36px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+
+    .accordion-item.active .icon::before {
+      content: "−";
+    }
+
+    .icon::before {
+      content: "+";
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .menu {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 100vh;
+      background-image: url('img/Temco_Website_Photos/background\ 3_oscuro.jpg'); /* Cambia esto por tu imagen real */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 400;
+    }
+
+    .hero-content strong {
+      font-weight: 700;
+    }
+
+    /* Navigation buttons */
+    .nav-buttons {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .nav-buttons button {
+      background: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .nav-buttons button:hover {
+      background: #f1f1f1;
+    }
+
+    .cta-button {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      z-index: 2;
+      background: white;
+      border: none;
+      font-weight: 600;
+      padding: 14px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .cta-button::after {
+      content: "→";
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav-buttons {
+        left: 20px;
+        bottom: 20px;
+      }
+
+      .cta-button {
+        right: 20px;
+        bottom: 20px;
+      }
+
+      header {
+        padding: 15px 20px;
+      }
+    }
+    .info-modern {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.container-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.info-text {
+  flex: 1 1 500px;
+}
+
+.info-text h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.info-text strong {
+  color: #000;
+}
+
+.info-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.info-image {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.info-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .container-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-text, .info-image {
+    flex: 1 1 100%;
+  }
+
+  .info-text h2 {
+    font-size: 1.6rem;
+  }
+}
+  </style>
+</head>
+<body>
+ <!-- Header -->
+  <header>
+    <div class="logo">TEM<span style="font-weight:400">CO</span></div>
+   
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1><strong>Die</strong>Casting</h1>
+    </div>
+
+    <!-- CTA Button -->
+    <button  class="cta-button" onclick="window.location.href='index.html'" >TEMCO</button>
+  </section>
+
+  <!-- 🔽 NUEVA SECCIÓN INFORMATIVA -->
+<section class="info-modern">
+  <div class="container-info">
+    <div class="info-text">
+      <h2><strong>Precision Manufacturing</strong> Built for the Future</h2>
+      <p>
+        At TEMCO, we specialize in advanced metalworking solutions that meet the most demanding industrial standards. 
+        From high-pressure die casting to precision tooling, our processes are optimized for speed, quality, and performance.
+      </p>
+      <p>
+        Whether you need prototypes or full-scale production, our team ensures consistent results with the latest manufacturing technologies.
+      </p>
+    </div>
+    <div class="info-image">
+      <img src="img/imagen_temco_3.png" alt="Manufacturing Equipment" />
+    </div>
+  </div>
+</section>
+  <div class="container">
+    <h2>Die Casting Services</h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <p>Post-Processing & Finishing</p>
+        <span>Die casting offers tight tolerances and repeatability, supported by: dimensional and visual inspections, monitoring, and testing.</span>
+      </div>
+      <div class="service-card">
+        <p>Tooling Design</p>
+        <span>The mold is the foundation of the die casting process.</span>
+      </div>
+      <div class="service-card">
+        <p>High-Pressure Injection</p>
+        <span>Molten metal (typically aluminum or zinc) is injected into the die at high pressure.</span>
+      </div>
+      <div class="service-card">
+        <p>Quality Control & Tolerances</p>
+        <span>Precision processes ensure consistent, high-quality parts that meet strict tolerances and industry standards.</span>
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <div class="icon"></div>
+        <span>What is Die Casting?</span>
+      </div>
+      <div class="accordion-content">
+        <p>Die casting is a manufacturing process for producing sharply defined, smooth or textured-surface metal parts by forcing molten metal under high pressure into reusable dies.</p>
+        <ul>
+          <li>How Are Die Castings Produced?</li>
+          <li>Types Of Machines for Die Casting</li>
+          <li>Cold Chamber Machines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <div class="icon"></div>
+        <span>Advantages of Die Casting</span>
+      </div>
+      <div class="accordion-content">
+        <p>Information about advantages</p>
+        <ul>
+          <li>High precision</li>
+          <li>Good surface finish</li>
+          <li>Excellent repeatability</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <div class="icon"></div>
+        <span>Guides For Design</span>
+      </div>
+      <div class="accordion-content">
+        <p>Information about Guides For Design</p>
+        <ul>
+          <li>Wall thickness guidance</li>
+          <li>Draft angles</li>
+          <li>Ribs and bosses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <div class="icon"></div>
+        <span>Die Casting Process Overview</span>
+      </div>
+      <div class="accordion-content">
+        <p>Overview of each stage of the die casting process</p>
+        <ul>
+          <li>Melting</li>
+          <li>Injection</li>
+          <li>Ejection</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <div class="icon"></div>
+        <span>Materials for Die Casting</span>
+      </div>
+      <div class="accordion-content">
+        <p>Information about materials</p>
+        <ul>
+          <li>Aluminum</li>
+          <li>Zinc</li>
+          <li>Magnesium</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple accordion toggle
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => {
+      item.querySelector('.accordion-header').addEventListener('click', () => {
+        // Close others
+        items.forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+        // Toggle clicked
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
