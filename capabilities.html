@@ -7,16 +7,25 @@
 	body {
   padding-top: 80px;
 }
+.card-body {
+ display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.card-body .btn {
+   margin-top: auto;
+}
 
 .service-card {
+  width: 100%;
+  max-width: 280px;
+  margin: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
 }
 
 .service-card:hover {
@@ -25,8 +34,10 @@
 
 .service-card img {
   object-fit: cover;
-  height: 380px;
-  width: 420px;
+  height: 200px;
+  width: 100%;
+  margin: 0;
+  border-radius: 8px;
 }
 
 .service-icon {
@@ -150,6 +161,7 @@
 				<li><a href="capabilities.html" class="active">CAPABILITIES</a></li>
 				<li><a href="products.html">PRODUCTS</a></li>
 				<li><a href="contact.php">CONTACT</a></li>
+        <div class="btn btn-warning" style="margin-top: -5.5px; font-size: 14px; "> <a href="die_casting.html">DIE CASTING</a></div>
 			</ul>
 
 			<!-- Selector de idioma a la derecha -->
@@ -165,13 +177,13 @@
 
 <!-- Services Section -->
 <div class="container my-5 pt-5">
-  <div class="row g-4">
+  <div class="row g-0 justify-content-center">
 
     <!-- Card 1 -->
-    <div class="col-md-4 d-flex">
-      <div class="card service-card">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
         <img src="img/What-We-Do-Capabilities/Die_Casting_2.jpg" class="card-img-top" alt="Die Casting">
-        <div class="card-body text-center">
+        <div class="card-body d-flex flex-column text-center">
           <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
             <i class="bi bi-fire"></i>
           </div>
@@ -183,10 +195,10 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="col-md-4 d-flex">
-      <div class="card service-card">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
         <img src="img/What-We-Do-Capabilities/Metal_Stamping_cap.jpg" class="card-img-top" alt="Metal Stamping">
-        <div class="card-body text-center">
+        <div class="card-body d-flex flex-column text-center">
           <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
             <i class="bi bi-wrench-adjustable"></i>
           </div>
@@ -198,10 +210,10 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="col-md-4 d-flex">
-      <div class="card service-card">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
         <img src="img/What-We-Do-Capabilities/Fabrication.jpg" class="card-img-top" alt="Fabrication">
-        <div class="card-body text-center">
+        <div class="card-body d-flex flex-column text-center">
           <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
             <i class="bi bi-tools"></i>
           </div>
@@ -212,7 +224,7 @@
       </div>
     </div>
 	<!-- Card 4 -->
-    <div class="col-md-4 d-flex">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
       <div class="card service-card">
         <img src="img/What-We-Do-Capabilities/Eng1.jpg" class="card-img-top" alt="Engineering">
         <div class="card-body text-center">
@@ -227,7 +239,7 @@
     </div>
 
 <!-- Card 5 -->
-    <div class="col-md-4 d-flex">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
     <div class="card service-card">
         <img src="img/What-We-Do-Capabilities/product_testing_cap.jpg" class="card-img-top" alt="ProductTesting">
         <div class="card-body text-center">
@@ -241,7 +253,7 @@
       </div>
     </div>
 <!-- Card 6 -->
-    <div class="col-md-4 d-flex">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
     <div class="card service-card">
         <img src="img/What-We-Do-Capabilities/Die_Casting_2_cap.jpg" class="card-img-top" alt="CNCMachining">
         <div class="card-body text-center">
@@ -255,7 +267,7 @@
       </div>
     </div>
 	<!-- Card 7 -->
-    <div class="col-md-4 d-flex">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
     <div class="card service-card">
         <img src="img/What-We-Do-Capabilities/Welding_cap.jpg" class="card-img-top" alt="ProductionWelding">
         <div class="card-body text-center">
@@ -269,7 +281,7 @@
       </div>
     </div>
 	<!-- Card 8 -->
-    <div class="col-md-4 d-flex">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
     <div class="card service-card">
         <img src="img/What-We-Do-Capabilities/in_house_tooling_cap.jpg" class="card-img-top" alt="HouseTooling">
         <div class="card-body text-center">
@@ -283,10 +295,10 @@
       </div>
     </div>
 	<!-- Card 9 -->
-    <div class="col-md-4 d-flex">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
     <div class="card service-card">
         <img src="img/What-We-Do-Capabilities/tube_bending_cap.jpg" class="card-img-top" alt="TubeBending">
-        <div class="card-body text-center">
+        <div class="card-body text-center w-100">
           <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
             <i class="bi bi-tools"></i>
           </div>
