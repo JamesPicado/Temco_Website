@@ -191,6 +191,90 @@
 		.about-us {
   margin-top: 90px;
 }
+.footer {
+  background-color: #111;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.iso-certifications img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.iso-certifications img:hover {
+  transform: scale(1.05);
+}
+.iso-certifications {
+  flex-direction: column; /* Apila las imágenes una debajo de la otra */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espaciado entre imágenes */
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.btn-footer {
+  display: inline-block;
+  background: #ffcc00;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-footer:hover {
+background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.footer-bottom span {
+  color: #ffcc00;
+}
 </style>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -345,84 +429,62 @@
 			========================================================================= -->
 		<!-- SOCIAL ICONS STARTS
 			========================================================================= -->
-			<div class="dark-grey-2 social-icons">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-sm-3 logo"><img src="img/temco_hd_logo.png" width="128" height="100" alt="" ></div>
-					</div>
-				</div>
-			</div>
+			
 		<!-- /. SOCIAL ICONS ENDS
 			========================================================================= -->
 		<!-- FOOTER STARTS
 			========================================================================= -->
-			<footer class="dark-grey-3">
-				<div class="container">
-					<div class="row">
-						<!-- About Us Starts -->
-						
-						<div class="col-lg-3 col-md-3 col-sm-6 about-us">
-							<h1>OUR COMMITMENT</h1>
-							<div class="description">We strive to deliver a level of service that exceeds the expectations of our customers.
-								If you have any questions about our products or services, please do not hesitate to contact us.</div>
-							<!-- <div class="button"><a href=""></a></div> -->
-						</div>
-						
-						
-						<!-- Fliker Starts -->
-					<div class="col-lg-2 col-md-8 col-sm-5 flickr">
-						<img src="img/ISO_logo_small.jpg" alt="">
-						<img src="img/Temco_Website_Photos/ISO_14001_2015_company.jpg" alt="">
-						<br><br>
-						<img src="img/made-in-the-usa-flag-small.jpg" alt="">
-												
-					</div>
-					
-					<div class="col-lg-4 col-md-3 col-sm-6 about-us">
-						<h1>QUALITY POLICY</h1>
-						<div class="description">At Temco Engineered Products, Inc. we are committed to providing quality products and services on time that exceed the expectations of our customers.</div>
-						
-						<div class="button">
-							<a href="coming-soon.html">Terms & Conditions</a>
-							<a href="purchasing_agent.html">Purchasing Agents</a>
-						</div>
-						
-					</div>
-					<!-- Fliker Ends -->
-						<!-- Contact Info Starts -->
-						<div class="col-lg-3 col-md-3 col-sm-6 contact-info">
-							<h1>Contact Info</h1>
-							<address>
-								<div class="phone">1-800-275-0574 USA</div>
-							</address>
-							<address>
-								<strong>Address:</strong><br>
-								Temco Engineered Products, Inc <br>
-								10240 SE Mather Road <br>
-								Clackamas, Oregon 97015 USA <br>                       
-							</address>
-							<address>
-								<strong>Email: </strong><br>
-								<a href="mailto:tomast@temcousa.com">tomast@temcousa.com</a>
-							</address>
-						</div>
-						<!-- Contact Info Ends -->
-					</div>
-				</div>
-			</footer>
-		<!-- /. FOOTER ENDS
-			========================================================================= -->
-		<!-- COPYRIGHT STARTS
-			========================================================================= -->
-		<div class="dark-grey-2 copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">© Copyrights 2021 <a href="">Made By Temco Engineered</a>  All rights reserved.</div>
-				</div>
-			</div>
-		</div>
-		<!-- /. COPYRIGHT ENDS
-			========================================================================= -->
+			<footer class="footer">
+  	<div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/temco_hd_logo.png" alt="Temco Logo">
+	  <img src="img/made-in-the-usa-flag-small.jpg" alt="ISO 45001:2018 Certified"> <!-- NUEVO -->
+    </div>
+
+    <!-- Commitment -->
+    <div class="footer-section">
+      <h3>OUR COMMITMENT</h3>
+      <p>
+        We strive to deliver a level of service that exceeds the expectations of our customers. 
+        If you have any questions about our products or services, please do not hesitate to contact us.
+      </p>
+      <div class="iso-certifications">
+        <img src="img/VerisysISO _9001.png" alt="ISO 9001:2015">
+        <img src="img/VerisysISO _ 14001.png" alt="ISO 14001:2015">
+		 
+      </div>
+    </div>
+
+    <!-- Quality Policy -->
+    <div class="footer-section">
+      <h3>QUALITY POLICY</h3>
+      <p>
+        At Temco Engineered Products, Inc. we are committed to providing quality products 
+        and services on time that exceed the expectations of our customers.
+      </p>
+      <div class="footer-buttons">
+        <a href="coming-soon.html" class="btn-footer">TERMS & CONDITIONS</a>
+        <a href="purchasing_agent.html" class="btn-footer">PURCHASING AGENTS</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>CONTACT INFO</h3>
+      <p class="phone">1-800-275-0574 USA</p>
+      <p><strong>Address:</strong> Temco Engineered Products, Inc <br>
+      10240 SE Mather Road <br>
+      Clackamas, Oregon 97015 USA</p>
+     <a href="mailto:tomast@temcousa.com"> <p ><strong>Email:</strong > tomast@temcouusa.com</p></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Copyrights 2025 <span>Made By Temco Engineered</span> All rights reserved.</p>
+  </div>
+	</footer>
+		
 		<!-- TO TOP STARTS
 			========================================================================= -->
 		<a href="#" class="scrollup">Scroll</a>      

@@ -136,6 +136,90 @@
 .modal.show {
   z-index: 2050 !important;
 }
+.footer {
+  background-color: #111;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.iso-certifications img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.iso-certifications img:hover {
+  transform: scale(1.05);
+}
+.iso-certifications {
+  flex-direction: column; /* Apila las imágenes una debajo de la otra */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espaciado entre imágenes */
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.btn-footer {
+  display: inline-block;
+  background: #ffcc00;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-footer:hover {
+background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.footer-bottom span {
+  color: #ffcc00;
+}
   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -255,7 +339,7 @@
 <!-- Card 6 -->
     <div class="col-lg-4 col-md-6 d-flex justify-content-center">
     <div class="card service-card">
-        <img src="img/What-We-Do-Capabilities/Die_Casting_2_cap.jpg" class="card-img-top" alt="CNCMachining">
+        <img src="img/What-We-Do-Capabilities/CNC_cap.jpg" class="card-img-top" alt="CNCMachining">
         <div class="card-body text-center">
           <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
             <i class="bi bi-tools"></i>
@@ -442,7 +526,56 @@ Temco is equipped to provide you with quick turnaround times and cost savings fo
 </div>
 </div>
 </div>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/temco_hd_logo.png" alt="Temco Logo">
+	  <img src="img/made-in-the-usa-flag-small.jpg" alt="ISO 45001:2018 Certified"> <!-- NUEVO -->
+    </div>
 
+    <!-- Commitment -->
+    <div class="footer-section">
+      <h3>OUR COMMITMENT</h3>
+      <p>
+        We strive to deliver a level of service that exceeds the expectations of our customers. 
+        If you have any questions about our products or services, please do not hesitate to contact us.
+      </p>
+      <div class="iso-certifications">
+        <img src="img/VerisysISO _9001.png" alt="ISO 9001:2015">
+        <img src="img/VerisysISO _ 14001.png" alt="ISO 14001:2015">
+		 
+      </div>
+    </div>
+
+    <!-- Quality Policy -->
+    <div class="footer-section">
+      <h3>QUALITY POLICY</h3>
+      <p>
+        At Temco Engineered Products, Inc. we are committed to providing quality products 
+        and services on time that exceed the expectations of our customers.
+      </p>
+      <div class="footer-buttons">
+        <a href="coming-soon.html" class="btn-footer">TERMS & CONDITIONS</a>
+        <a href="purchasing_agent.html" class="btn-footer">PURCHASING AGENTS</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>CONTACT INFO</h3>
+      <p class="phone">1-800-275-0574 USA</p>
+      <p><strong>Address:</strong> Temco Engineered Products, Inc <br>
+      10240 SE Mather Road <br>
+      Clackamas, Oregon 97015 USA</p>
+     <a href="mailto:tomast@temcousa.com"> <p ><strong>Email:</strong > tomast@temcouusa.com</p></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Copyrights 2025 <span>Made By Temco Engineered</span> All rights reserved.</p>
+  </div>
+	</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </body>
