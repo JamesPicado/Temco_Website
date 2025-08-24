@@ -1,1036 +1,1268 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>TEMCOUSA | INICIO</title>
-		<!-- All Stylesheets -->
-		<link href="css/all-stylesheets.css" rel="stylesheet">
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>TEMCOUSA | Inicio</title>
+	<!-- All Stylesheets -->
+	<style>
+		/* Este permite que al pasar cursor por el card de productos se pueda iluminar otro color */
+		.service-card:hover {
+			background-color: #fbc02d;
+			/* Amarillo similar al de los títulos */
+			color: #000;
+			/* Texto oscuro para mejor contraste */
+		}
+
+		.service-card:hover .service-title,
+		.service-card:hover .service-desc {
+			color: #000;
+		}
+
+		.service-card:hover .highlight {
+			background-color: #222;
+			/* Puedes invertir el color del highlight si lo deseas */
+		}
+
+		.modern-3-cols .card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 1rem;
+		}
+
+		.modern-3-cols .card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+		}
+
+		.modern-3-cols h3 {
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.modern-3-cols p {
+			font-size: 15px;
+			line-height: 1.6;
+		}
+
+		.modern-3-cols .btn {
+			transition: all 0.3s ease;
+			font-weight: 500;
+			padding: 0.5rem 1.5rem;
+		}
+
+		.modern-about h2 {
+			font-family: 'Poppins', sans-serif;
+			font-size: 1.9rem;
+			line-height: 1.4;
+		}
+
+		.modern-about .underline {
+			width: 70px;
+			height: 5px;
+			background: linear-gradient(to right, #222 40%, #fbc02d 60%);
+			border-radius: 10px;
+		}
+
+		.about-image-wrapper img {
+			border-radius: 1rem;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+		}
+
+		.services-container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 24px;
+		}
+
+
+		.service-card {
+			margin-left: 120px;
+			margin-right: 120px;
+			display: flex;
+			align-items: stretch;
+			background: #fff;
+			border-radius: 16px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+			overflow: hidden;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.service-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		}
+
+		.service-image {
+			width: 160px;
+			object-fit: cover;
+			height: 100%;
+			flex-shrink: 0;
+		}
+
+		.service-content {
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.service-title {
+			font-size: 18px;
+			font-weight: 600;
+			color: #222;
+			margin-bottom: 8px;
+		}
+
+		.service-desc {
+			font-size: 14px;
+			color: #555;
+			line-height: 1.5;
+		}
+
+		.highlight {
+			display: block;
+			width: 40px;
+			height: 4px;
+			background-color: #FFC107;
+			margin-bottom: 12px;
+		}
+
+		@media (max-width: 768px) {
+			.services-container {
+				grid-template-columns: 1fr;
+			}
+
+			.navbar-nav {
+				display: flex !important;
+				flex-direction: row !important;
+				justify-content: center;
+				align-items: center;
+				gap: 15px;
+			}
+
+			.navbar-nav li {
+				float: none !important;
+			}
+
+			.navbar-nav li a {
+				display: block;
+				padding: 10px 15px;
+				color: white;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Poppins', sans-serif;
+			background-color: #0f0f0f;
+			color: #fff;
+		}
+
+		.featured-section {
+			position: relative;
+			padding: 80px 20px;
+			text-align: center;
+			background-image: url('img/Temco_Website_Photos/background 6_oscura.jpg');
+			/* Reemplaza por tu imagen */
+			background-size: cover;
+			background-position: center;
+			z-index: 1;
+		}
+
+		.featured-section::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			/*background: rgba(0, 0, 0, 0.6); /* oscurece fondo */
+			z-index: 0;
+		}
+
+		.featured-section h2 {
+			font-size: 2.5rem;
+			margin-bottom: 50px;
+			position: relative;
+			display: inline-block;
+			z-index: 2;
+			color: white;
+		}
+
+		.featured-section h2::after {
+			content: "";
+			width: 50px;
+			height: 4px;
+			background: #ffc107;
+			display: block;
+			margin: 10px auto 0;
+			border-radius: 2px;
+		}
+
+		.product-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 30px;
+			max-width: 1200px;
+			margin: 0 auto;
+			position: relative;
+			z-index: 2;
+		}
+
+		.card {
+			background-color: #1e1e1e;
+			border-radius: 16px;
+			overflow: hidden;
+			box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+		}
+
+		.card img {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+			display: block;
+		}
+
+		.card-body {
+			padding: 20px;
+		}
+
+		.card-body h3 {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: #010101;
+		}
+
+		@media (max-width: 500px) {
+			.featured-section h2 {
+				font-size: 1.8rem;
+			}
+		}
+
+		.navbar-nav .nav-link {
+			font-weight: 500;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-nav .nav-link:hover {
+			color: #ffc107;
+		}
+
+		.navbar {
+			background-color: rgba(0, 0, 0, 0.6);
+			/* fondo con transparencia */
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.form-select {
+			width: auto;
+		}
+
+		.main-navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			/* oscuro con transparencia */
+			z-index: 9999;
+			padding: 10px 0;
+		}
+
+		.navbar-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.navbar-logo img {
+			height: 60px;
+		}
+
+		.navbar-menu {
+			list-style: none;
+			display: flex;
+			gap: 30px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar-menu li a {
+			color: white;
+			text-decoration: none;
+			font-weight: 600;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-menu li a:hover,
+		.navbar-menu li a.active {
+			color: #ffc107;
+			/* amarillo */
+		}
+
+		.navbar-lang select {
+			background-color: white;
+			color: rgb(0, 0, 0);
+			border: 1px solid white;
+			padding: 4px 8px;
+			border-radius: 4px;
+		}
+		.text-white-custom {
+  color: rgb(0, 0, 0) !important;
+}
+.clients-section {
+  background: #eee;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.clients-title {
+  display: inline-block;
+  background: #ffcc00;
+  padding: 10px 30px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 10); /* 5 logos x 2 (duplicados) */
+  animation: scroll 15s linear infinite;
+}
+
+.slide {
+  width: 200px;        /* marco uniforme */
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;    /* fondo blanco opcional */
+  border: 1px solid #ddd;
+  margin: 0 15px; 
+}
+
+.slide img {
+  width: 100%;         /* ocupa el ancho máximo posible */
+  height: 100%;        /* ocupa el alto máximo posible */
+  object-fit: contain; /* se adapta sin deformarse */
+  
+}
+
+.slide img:hover {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 5)); } /* mueve 5 logos */
+}
+.footer {
+  background-color: #111;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.iso-certifications img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.iso-certifications img:hover {
+  transform: scale(1.05);
+}
+.iso-certifications {
+  flex-direction: column; /* Apila las imágenes una debajo de la otra */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espaciado entre imágenes */
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.btn-footer {
+  display: inline-block;
+  background: #ffcc00;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-footer:hover {
+background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.footer-bottom span {
+  color: #ffcc00;
+}
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="css/all-stylesheets.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link
+		href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,500,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	</head>
-	<body>
-		<!-- NAVIGATION STARTS
-			========================================================================= -->   
-		<nav id="navigation">
-			<div class="navbar navbar-inverse" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<!--  Logo Starts -->
-						<a class="navbar-brand" href="index_es.html"><img src="img/temco_hd_logo.png" width="128" height="100" alt=""></a>
-						<!-- Logo Ends -->                        
-					</div>
-					<div class="collapse navbar-collapse">
-						<!-- <div class="nav navbar-nav navbar-right hidden-xs">
-							<div class="searchlink" id="searchlink">
-								<div class="searchform">
-									<form id="search">
-										<input type="text" class="s" id="s" placeholder="keywords...">
-										<button type="submit" class="sbtn"><i class="fa fa-search"></i></button>
-									</form>
-								</div>
-							</div>
-						</div> -->
-						
-						<ul class="nav navbar-nav navbar-left pull-right">
-							<li class="current"><a href="index_es.html" class="external">INICIO</a></li>
-							<li><a href="about-us_es.html" class="external">SOBRE NOSOTROS</a></li>
-							<li><a href="capabilities_es.html" class="external">CAPACIDADES</a></li>
-							<li><a href="products_es.html" class="external">PRODUCTOS</a></li>
-							<li><a href="contact_es.php" class="external">CONTACTO</a></li>
-							<li><select name="ELEGIR" value="ELEGIR" onchange="document.location.href=this.value">
+</head>
 
-								<option selected disabled>Idioma</option>
-								
-								<option value="index.html">Inglés</option>
-								<option value="index_es.html">Español</option>
-							
-								
-								</select></li>
-
-							<!-- <span class="en">Inglés</span>
-							<input type="checkbox" class="check" checked>
-							<span class="es">Español</span> -->
-						</ul>
-					</div>
-					<!--/.nav-collapse --> 
-				</div>
+<body>
+	<!-- NAVIGATION STARTS
+			========================================================================= -->
+	<nav class="main-navbar">
+		<div class="navbar-container">
+			<!-- Logo a la izquierda -->
+			<div class="navbar-logo">
+				<a href="index.html">
+					<img src="img/temco_hd_logo.png" alt="TEMCO Logo">
+				</a>
 			</div>
-		</nav>
-		<!-- /. NAVIGATION ENDS
-			========================================================================= -->
-		<!-- SLIDER STARTS
-			========================================================================= -->		
-		<div class="content">
-			<div id="rev_slider_46_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="notgeneric1" style="background-color:transparent;padding:0px;">
-				<!-- START REVOLUTION SLIDER 5.0.7 fullscreen mode -->
-				<div id="rev_slider_46_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.0.7">
-					<ul>
-						<!-- SLIDE  -->
-						<li data-index="rs-148" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="img/Temco_Website_Photos/back_3.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Engineered Solutions" data-description="">
-							<!-- MAIN IMAGE -->
-							<img src="img/Temco_Website_Photos/background 3_oscuro.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-							<!-- LAYER NR. 1 -->
-							<div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-								id="slide-148-layer-1" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-30']" 
-								data-fontsize="['34','34','34','22']"
-								data-lineheight="['34','34','34','22']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="chars" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								data-elementdelay="0.05" 
-								style="z-index: 5; white-space: nowrap;">Soluciones de ingeniería personalizadas
-							</div>
-							<!-- LAYER NR. 2 -->
-							<div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-								id="slide-148-layer-2" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-150','-150','-150','-70']" 
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1500" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								style="z-index: 6; white-space: nowrap;">TEMCO
-							</div>
-							<!-- LAYER NR. 3 -->
-							<div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0 doubleline-2" 
-								id="slide-148-layer-3" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-55','-55','-55','0']" 
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-style_hover="cursor:default;"
-								data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="2000" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								style="z-index: 7; white-space: nowrap;">
-							</div>
-							<!-- LAYER NR. 4 -->
-							<div class="tp-caption WebProduct-Content-Light   tp-resizeme rs-parallaxlevel-0" 
-								id="slide-148-layer-4" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','80']" 
-								data-width="350"
-                                data-height="none"								
-								data-whitespace="normal"
-								data-transform_idle="o:1;"
-								data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1500" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								style="z-index: 8; min-width: 350px; max-width: 350px; max-width: 150px; max-width: 150px; white-space: normal;">Temco es una empresa de diseño y fabricación de productos de servicio completo. Damos la bienvenida a la oportunidad de desarrollar y fabricar sus nuevos productos.
-							</div>
-							<!-- LAYER NR. 5 -->
-							<div class="tp-caption NotGeneric-Button rev-btn  rs-parallaxlevel-0 hidden-xs" id="slide-148-layer-5" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','110']" 
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
-								data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
-								data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;" 
-								data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_out="x:inherit;y:inherit;" 
-								data-start="2000" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-								data-responsive_offset="on" 
-								data-responsive="off"
-								style="z-index: 9; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><a href="mailto:tomast@temcousa.com" style="color:#ffffff;">Contáctanos ahora</a>
-							</div>
-						</li>
-						<!-- SLIDE  -->
-						<!-- SLIDE  -->
-						<li data-index="rs-149" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="img/Temco_Website_Photos/Fabrication.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Quality" data-description="">
-							<!-- MAIN IMAGE -->
-							<img src="img/Temco_Website_Photos/Fabrication_oscuro.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-							<!-- LAYER NR. 1 -->
-							<div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-								id="slide-149-layer-1" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-30']" 
-								data-fontsize="['34','34','34','22']"
-								data-lineheight="['34','34','34','22']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="chars" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								data-elementdelay="0.05" 
-								style="z-index: 5; white-space: nowrap;">Cultura de Calidad
-							</div>
-							<!-- LAYER NR. 2 -->
-							<div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-								id="slide-149-layer-2" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-150','-150','-150','-70']" 
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1500" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								style="z-index: 6; white-space: nowrap;">Temco
-							</div>
-							<!-- LAYER NR. 3 -->
-							<div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0 doubleline-2" 
-								id="slide-149-layer-3" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-55','-55','-55','0']" 
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-style_hover="cursor:default;"
-								data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="2000" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								style="z-index: 7; white-space: nowrap;">
-							</div>
-							<!-- LAYER NR. 4 -->
-							<div class="tp-caption WebProduct-Content-Light   tp-resizeme rs-parallaxlevel-0" 
-								id="slide-149-layer-4" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','80']" 
-								data-width="350"
-                                data-height="none"								
-								data-whitespace="normal"
-								data-transform_idle="o:1;"
-								data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1500" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on" 
-								style="z-index: 8; min-width: 350px; max-width: 350px; max-width: 150px; max-width: 150px; white-space: normal;">El compromiso de Temco con la integración vertical de la calidad garantiza el control de la calidad de sus productos, desde la materia prima hasta los productos terminados.
-							</div>
-							<!-- LAYER NR. 5 -->
-							<div class="tp-caption NotGeneric-Button rev-btn  rs-parallaxlevel-0 hidden-xs" 
-                            	id="slide-149-layer-5" 
-								data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','110']" 
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
-								data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
-								data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;" 
-								data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_out="x:inherit;y:inherit;" 
-								data-start="2000" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-								data-responsive_offset="on" 
-								data-responsive="off"
-								style="z-index: 9; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><a href="mailto:tomast@temcousa.com" style="color:#ffffff;">LEER MÁS</a>
-							</div>
-						</li>
-						<!-- SLIDE  -->
-							<!-- SLIDE  -->
-							<li data-index="rs-1q49" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="img/Temco_Website_Photos/CNC.jpg	"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Products" data-description="">
-								<!-- MAIN IMAGE -->
-								<img src="img/Temco_Website_Photos/CNC_oscuro.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="11" class="rev-slidebg" data-no-retina>
-								<!-- LAYERS -->
-								<!-- LAYER NR. 1 -->
-								<div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-									id="slide-149-layer-1" 
-									data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-									data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-30']" 
-									data-fontsize="['34','34','34','22']"
-									data-lineheight="['34','34','34','22']"
-									data-width="none"
-									data-height="none"
-									data-whitespace="nowrap"
-									data-transform_idle="o:1;"
-									data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1000" 
-									data-splitin="chars" 
-									data-splitout="none" 
-									data-responsive_offset="on" 
-									data-elementdelay="0.05" 
-									style="z-index: 5; white-space: nowrap;">PRODUCTOS DISEÑADOS POR TEMCO
 
- 
-								</div>
-								<!-- LAYER NR. 2 -->
-								<div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-									id="slide-149-layer-2" 
-									data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-									data-y="['middle','middle','middle','middle']" data-voffset="['-150','-150','-150','-70']" 
-									data-width="none"
-									data-height="none"
-									data-whitespace="nowrap"
-									data-transform_idle="o:1;"
-									data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1500" 
-									data-splitin="none" 
-									data-splitout="none" 
-									data-responsive_offset="on" 
-									style="z-index: 6; white-space: nowrap;">Temco
-								</div>
-								<!-- LAYER NR. 3 -->
-								<div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0 doubleline-2" 
-									id="slide-149-layer-3" 
-									data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-									data-y="['middle','middle','middle','middle']" data-voffset="['-55','-55','-55','0']" 
-									data-width="none"
-									data-height="none"
-									data-whitespace="nowrap"
-									data-transform_idle="o:1;"
-									data-style_hover="cursor:default;"
-									data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;" 
-									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="2000" 
-									data-splitin="none" 
-									data-splitout="none" 
-									data-responsive_offset="on" 
-									style="z-index: 7; white-space: nowrap;">
-								</div>
-								<!-- LAYER NR. 4 -->
-								<div class="tp-caption WebProduct-Content-Light   tp-resizeme rs-parallaxlevel-0" 
-									id="slide-149-layer-4" 
-									data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-									data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','80']" 
-									data-width="350"
-									data-height="none"								
-									data-whitespace="normal"
-									data-transform_idle="o:1;"
-									data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-									data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-									data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-									data-start="1500" 
-									data-splitin="none" 
-									data-splitout="none" 
-									data-responsive_offset="on" 
-									style="z-index: 8; min-width: 350px; max-width: 350px; max-width: 150px; max-width: 150px; white-space: normal;">Establecido en 1966 como nivel 1 internacional
-									proveedor de OEM de transporte.
-									Todos nuestros productos están fabricados con orgullo en los Estados Unidos.
+			<!-- Menú centrado -->
+			<ul class="navbar-menu">
+				<li><a href="index_es.html" class="active">Inicio</a></li>
+				<li><a href="about-us_es.html" >Sobre Nosotros</a></li>
+				<li><a href="capabilities_es.html">Capacidades</a></li>
+				<li><a href="products_es.html">Productos</a></li>
+				<li><a href="contact_es.html">Contacto</a></li>
+				<div class="btn btn-warning" style="margin-top: -5.5px; font-size: 14px; "> <a href="die_casting.html">DIE CASTING</a></div>
+			</ul>
 
-
-								</div>
-								<!-- LAYER NR. 5 -->
-								<div class="tp-caption NotGeneric-Button rev-btn  rs-parallaxlevel-0 hidden-xs" 
-									id="slide-149-layer-5" 
-									data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
-									data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','110']" 
-									data-width="none"
-									data-height="none"
-									data-whitespace="nowrap"
-									data-transform_idle="o:1;"
-									data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
-									data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
-									data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;" 
-									data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-									data-mask_out="x:inherit;y:inherit;" 
-									data-start="2000" 
-									data-splitin="none" 
-									data-splitout="none" 
-									data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
-									data-responsive_offset="on" 
-									data-responsive="off"
-									style="z-index: 9; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"><a href="mailto:tomast@temcousa.com" style="color:#ffffff;">MÁS INFO</a>
-								</div>
-							</li>
-							<!-- SLIDE  -->
-					</ul>
-					<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
-				</div>
-			</div>
-			<!-- END REVOLUTION SLIDER -->
-		</div>
-		<!-- SLIDER ENDS
-			========================================================================= -->
-		<!-- SOCIAL ICONS STARTS
-			========================================================================= -->
-		<div class="dark-grey-2 strip">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6">
-						<h1>Temco Engineered Products ofrece muchos tipos diferentes de servicios de producción</h1>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6">
-						<div class="button"><a href="capabilities_es.html" class="fill hidden-xs">Ver capacidades</a> <a href="mailto:tomast@temcousa.com">Tengo una pregunta sobre productos</a></div>
-					</div>
-				</div>
+			<!-- Selector de idioma a la derecha -->
+			<div class="navbar-lang">
+				<select onchange="document.location.href=this.value">
+					<option selected disabled>Idioma</option>
+					<option value="index.html">Ingles</option>
+					<option value="index_es.html">Espanol</option>
+				</select>
 			</div>
 		</div>
-		<!-- /. SOCIAL ICONS ENDS
+	</nav>
+	<!-- /. NAVIGATION ENDS
 			========================================================================= -->
-		<!-- ABOUT US VIDEO INTRO STARTS
+	<!-- SLIDER STARTS
 			========================================================================= -->
-		<div class="container index-about-us">
+	<div class="content">
+		<div id="rev_slider_46_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="notgeneric1"
+			style="background-color:transparent;padding:0px;">
+			<!-- START REVOLUTION SLIDER 5.0.7 fullscreen mode -->
+			<div id="rev_slider_46_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.0.7">
+				<ul>
+					<!-- SLIDE  -->
+					<li data-index="rs-148" data-transition="zoomout" data-slotamount="default"
+						data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"
+						data-thumb="img/Temco_Website_Photos/back_3.jpg" data-rotate="0" data-fstransition="fade"
+						data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"
+						data-title="Engineered Solutions" data-description="">
+						<!-- MAIN IMAGE -->
+						<img src="img/Temco_Website_Photos/background 3_oscuro.jpg" alt=""
+							data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+							data-bgparallax="10" class="rev-slidebg" data-no-retina>
+						<!-- LAYERS -->
+						<!-- LAYER NR. 1 -->
+						<div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" id="slide-148-layer-1"
+							data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']"
+							data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-30']"
+							data-fontsize="['34','34','34','22']" data-lineheight="['34','34','34','22']"
+							data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000"
+							data-splitin="chars" data-splitout="none" data-responsive_offset="on"
+							data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">Soluciones de ingeniería personalizadas
+						</div>
+						<!-- LAYER NR. 2 -->
+						<div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+							id="slide-148-layer-2" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['-150','-150','-150','-70']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 6; white-space: nowrap;">TEMCO
+						</div>
+						<!-- LAYER NR. 3 -->
+						<div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0 doubleline-2"
+							id="slide-148-layer-3" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['-55','-55','-55','0']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="2000"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 7; white-space: nowrap;">
+						</div>
+						<!-- LAYER NR. 4 -->
+						<div class="tp-caption WebProduct-Content-Light   tp-resizeme rs-parallaxlevel-0"
+							id="slide-148-layer-4" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['20','20','20','80']" data-width="350" data-height="none"
+							data-whitespace="normal" data-transform_idle="o:1;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 8; min-width: 350px; max-width: 350px; max-width: 150px; max-width: 150px; white-space: normal;">
+							Temco es una empresa que ofrece servicios integrales de diseño y fabricación de productos. Agradecemos la oportunidad de desarrollar y fabricar sus nuevos productos.
+						</div>
+						<!-- LAYER NR. 5 -->
+						<div class="tp-caption NotGeneric-Button rev-btn  rs-parallaxlevel-0 hidden-xs"
+							id="slide-148-layer-5" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['110','110','110','110']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+							data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
+							data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;"
+							data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_out="x:inherit;y:inherit;" data-start="2000" data-splitin="none"
+							data-splitout="none"
+							data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+							data-responsive_offset="on" data-responsive="off"
+							style="z-index: 9; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+							<a href="mailto:tomast@temcousa.com" style="color:#ffffff;">Escribenos...</a>
+						</div>
+					</li>
+					<!-- SLIDE  -->
+					<!-- SLIDE  -->
+					<li data-index="rs-149" data-transition="zoomout" data-slotamount="default"
+						data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"
+						data-thumb="img/Temco_Website_Photos/Fabrication.jpg" data-rotate="0" data-fstransition="fade"
+						data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Quality"
+						data-description="">
+						<!-- MAIN IMAGE -->
+						<img src="img/Temco_Website_Photos/Fabrication_oscuro.jpg" alt=""
+							data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+							data-bgparallax="10" class="rev-slidebg" data-no-retina>
+						<!-- LAYERS -->
+						<!-- LAYER NR. 1 -->
+						<div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" id="slide-149-layer-1"
+							data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']"
+							data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-30']"
+							data-fontsize="['34','34','34','22']" data-lineheight="['34','34','34','22']"
+							data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000"
+							data-splitin="chars" data-splitout="none" data-responsive_offset="on"
+							data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">Cultura de Calidad
+						</div>
+						<!-- LAYER NR. 2 -->
+						<div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+							id="slide-149-layer-2" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['-150','-150','-150','-70']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 6; white-space: nowrap;">Temco
+						</div>
+						<!-- LAYER NR. 3 -->
+						<div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0 doubleline-2"
+							id="slide-149-layer-3" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['-55','-55','-55','0']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="2000"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 7; white-space: nowrap;">
+						</div>
+						<!-- LAYER NR. 4 -->
+						<div class="tp-caption WebProduct-Content-Light   tp-resizeme rs-parallaxlevel-0"
+							id="slide-149-layer-4" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['20','20','20','80']" data-width="350" data-height="none"
+							data-whitespace="normal" data-transform_idle="o:1;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 8; min-width: 350px; max-width: 350px; max-width: 150px; max-width: 150px; white-space: normal;">
+							El compromiso de Temco con la integración vertical de calidad garantiza el control de calidad de sus productos, desde la materia prima hasta el producto terminado.
+						</div>
+						<!-- LAYER NR. 5 -->
+						<div class="tp-caption NotGeneric-Button rev-btn  rs-parallaxlevel-0 hidden-xs"
+							id="slide-149-layer-5" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['110','110','110','110']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+							data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
+							data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;"
+							data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_out="x:inherit;y:inherit;" data-start="2000" data-splitin="none"
+							data-splitout="none"
+							data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+							data-responsive_offset="on" data-responsive="off"
+							style="z-index: 9; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+							<a href="mailto:tomast@temcousa.com" style="color:#ffffff;">Ver mas</a>
+						</div>
+					</li>
+					<!-- SLIDE  -->
+					<!-- SLIDE  -->
+					<li data-index="rs-1q49" data-transition="zoomout" data-slotamount="default"
+						data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"
+						data-thumb="img/Temco_Website_Photos/CNC.jpg	" data-rotate="0" data-fstransition="fade"
+						data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Products"
+						data-description="">
+						<!-- MAIN IMAGE -->
+						<img src="img/Temco_Website_Photos/CNC_oscuro.jpg" alt="" data-bgposition="center center"
+							data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="11" class="rev-slidebg"
+							data-no-retina>
+						<!-- LAYERS -->
+						<!-- LAYER NR. 1 -->
+						<div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" id="slide-149-layer-1"
+							data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']"
+							data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-100','-30']"
+							data-fontsize="['34','34','34','22']" data-lineheight="['34','34','34','22']"
+							data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000"
+							data-splitin="chars" data-splitout="none" data-responsive_offset="on"
+							data-elementdelay="0.05" style="z-index: 5; white-space: nowrap;">PRODUCTOS DE INGENIERÍA TEMCO
+
+						</div>
+						<!-- LAYER NR. 2 -->
+						<div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
+							id="slide-149-layer-2" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['-150','-150','-150','-70']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 6; white-space: nowrap;">Temco
+						</div>
+						<!-- LAYER NR. 3 -->
+						<div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0 doubleline-2"
+							id="slide-149-layer-3" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['-55','-55','-55','0']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;" data-style_hover="cursor:default;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="2000"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 7; white-space: nowrap;">
+						</div>
+						<!-- LAYER NR. 4 -->
+						<div class="tp-caption WebProduct-Content-Light   tp-resizeme rs-parallaxlevel-0"
+							id="slide-149-layer-4" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['20','20','20','80']" data-width="350" data-height="none"
+							data-whitespace="normal" data-transform_idle="o:1;"
+							data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1500"
+							data-splitin="none" data-splitout="none" data-responsive_offset="on"
+							style="z-index: 8; min-width: 350px; max-width: 350px; max-width: 150px; max-width: 150px; white-space: normal;">
+							Fundada en 1966 como proveedor internacional de primer nivel para fabricantes de equipos originales (OEM) del sector del transporte. Todos nuestros productos se fabrican con orgullo en EE. UU.
+
+						</div>
+						<!-- LAYER NR. 5 -->
+						<div class="tp-caption NotGeneric-Button rev-btn  rs-parallaxlevel-0 hidden-xs"
+							id="slide-149-layer-5" data-x="['left','left','left','left']"
+							data-hoffset="['50','50','50','50']" data-y="['middle','middle','middle','middle']"
+							data-voffset="['110','110','110','110']" data-width="none" data-height="none"
+							data-whitespace="nowrap" data-transform_idle="o:1;"
+							data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+							data-style_hover="c:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);cursor:pointer;"
+							data-transform_in="y:50px;opacity:0;s:1500;e:Power4.easeInOut;"
+							data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_out="x:inherit;y:inherit;" data-start="2000" data-splitin="none"
+							data-splitout="none"
+							data-actions='[{"event":"click","action":"jumptoslide","slide":"next","delay":""}]'
+							data-responsive_offset="on" data-responsive="off"
+							style="z-index: 9; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+							<a href="mailto:tomast@temcousa.com" style="color:#ffffff;">Ver mas</a>
+						</div>
+					</li>
+					<!-- SLIDE  -->
+				</ul>
+				<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+			</div>
+		</div>
+		<!-- END REVOLUTION SLIDER -->
+	</div>
+	<!-- SLIDER ENDS
+			========================================================================= -->
+	<!-- SOCIAL ICONS STARTS
+			========================================================================= -->
+	<div class="dark-grey-2 strip">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-6">
-					<div class="picture">
-						<img src="img/home.png" class="img-responsive" alt="">
-					</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<h1>Temco Engineered Products ofrece muchos tipos diferentes de servicios de producción</h1>
 				</div>
-				<div class="col-lg-5 col-md-6">
-					<h1>Productos y servicios fabricados para el mercado industrial</h1>
-					<div class="lead"></div>
-					<div class="doubleline"></div>
-					<div class="description">Temco ha sido un proveedor de primer nivel para la industria del transporte desde 1966. Una empresa ISO 9001, integrada verticalmente para garantizar la calidad y la entrega a tiempo durante toda la producción. Al innovar constantemente el arte de la producción de alto volumen, Temco aún puede adaptarse a las necesidades de los clientes con aplicaciones únicas. Con más de 50,000 pies cuadrados, Temco continúa expandiéndose a nuevas industrias que brindan productos a los mercados médico, agrícola y marino.</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<div class="button"> <a href="die_casting.html">Die Casting</a></div>
 				</div>
 			</div>
 		</div>
-		<!-- ABOUT US VIDEO INTRO ENDS
+	</div>
+	<!-- /. SOCIAL ICONS ENDS
 			========================================================================= -->
-		<!-- THREE COLUMNS STARTS
+	<!-- ABOUT US VIDEO INTRO STARTS
 			========================================================================= -->
-		<div class="container-fluid index-3-cols">
-			<div class="row">
-				<!-- Column Starts -->
-				<div class="col-lg-4 col-md-4 block light-grey">
-					<div class="clearfix">
-						<h1 class="pull-left">Línea de productos</h1>
-						<div class="pull-right icon"><i class="fa fa-building-o"></i></div>
-					</div>
-					<div class="line"></div>
-					<div class="description">Con más de cincuenta años de experiencia como fabricante de equipos originales en componentes de tanques de combustible para camiones pesados, Temco proporciona componentes estándar y diseñados a medida que cumplen y superan los requisitos de la Administración Federal de Seguridad de Autotransportes (FMCSA). 
-					</div>
-					<div class="button"><a href="products_es.html">Ver Productos</a></div>
+	<div class="container py-5 modern-about">
+		<div class="row align-items-center">
+			<div class="col-md-6 mb-4 mb-md-0">
+				<div class="about-image-wrapper">
+					<img src="img/home.png" class="img-fluid rounded-4 shadow-sm" alt="Temco Facility">
 				</div>
-				<!-- Column Ends -->
-				<!-- Column Starts -->
-				<div class="col-lg-4 col-md-4 block medium-grey">
-					<div class="clearfix">
-						<h1 class="pull-left">Sobre Temco</h1>
-						<div class="pull-right icon"><i class="fa fa-thumbs-up"></i></div>
-					</div>
-					<div class="line"></div>
-					<div class="description">Desde 1966, Temco Engineered Products, Inc. ha diseñado y fabricado una línea completa de componentes de tanques para la industria del transporte, incluidos los OEM de camiones de América del Norte. Temco se ha convertido en un experto internacional en tanques de combustible y componentes de tanques de combustible.
-					</div>
-					<div class="button"><a href="about-us_es.html" class="white">Leer Más</a></div>
-				</div>
-				<!-- Column Ends -->
-				<!-- Column Starts -->
-				<div class="col-lg-4 col-md-4 block light-grey">
-					<div class="clearfix">
-						<h1 class="pull-left">COTIZA CON NOSOTROS</h1>
-						<div class="pull-right icon"><i class="fa fa-paint-brush"></i></div>
-					</div>
-					<div class="line"></div>
-					<div class="description">A través de un formulario puedes contactar con nosotros. Será un placer ayudarte.
-						
-					</div>
-					<br><br><br>
-					<div class="button"><a href="contact_es.php">Contacto</a></div>
-				</div>
-				<!-- Column Ends -->
+			</div>
+			<div class="col-md-6">
+				<h2 class="fw-bold mb-3">Productos y servicios<br><span class="text-primary">Fabricado para el mercado industrial</span></h2>
+				<div class="underline mb-3"></div>
+				<p class="text-muted">
+					Temco ha sido un proveedor de primer nivel para la industria del transporte desde 1966. Una empresa con certificación ISO 9001, integrada verticalmente para garantizar la calidad y la entrega puntual durante toda la producción. Innovando constantemente en el arte de la producción de alto volumen, Temco también puede satisfacer las necesidades de los clientes con aplicaciones únicas.
+					<br><br>
+					Con más de 50.000 pies cuadrados, Temco continúa expandiéndose hacia nuevas industrias, proporcionando productos a los mercados médico, agrícola y marino.
+				</p>
 			</div>
 		</div>
-		<!-- THREE COLUMNS ENDS
+	</div>
+	<!-- ABOUT US VIDEO INTRO ENDS
 			========================================================================= -->
-		<!-- WHAT WE OFFER STARTS
+	<!-- THREE COLUMNS STARTS
 			========================================================================= -->
-		<div class="what-we-offer">
-			<div class="dark-grey header">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<h1><span>¿Qué hacemos?</span></h1>
-							<div class="pull-right button hidden-xs"><a href="capabilities_es.html">Todas Nuestras capacidades</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<!-- Row Starts -->
-				<div class="row">
-				
-					<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/Fabrication.jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Fabricación</h1>
-								<div class="line"></div>
-								<div class="description">Temco combina nuestra experiencia en estampado, soldadura, fundición a presión y doblado de tubos para producir fabricaciones terminadas según las especificaciones del cliente.</div>
-							</div>
-						</div>
-					</div>
-					<!-- Block Ends -->
-					<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/Welding (2).jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Producción Soldadura</h1>
-								<div class="line"></div>
-								<div class="description">Fabricación de producción y soldadura personalizada. Soldadura certificada con TIG y MIG,
-									Soldadura especializada de aluminio, Equipos de soldadura Fronius computarizados, digitales.
-									
-								</div>
-							</div>
-						</div>
-					</div> <!-- Block Ends -->
-					
-					<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/Engineering.jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Ingeniería</h1>
-								<div class="line"></div>
-								<div class="description">Temco ofrece ingeniería personalizada y diseño de nuevos productos respaldados por sus cincuenta años
-									de experiencia como proveedor OEM para la Industria del Transporte y cumplimiento de la norma ISO 9001:2015.</div>
-							</div>
-						</div>
-					</div> <!-- Block Ends -->
-					<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/CNC (2).jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Mecanizado CNC</h1>
-								<div class="line"></div>
-								<div class="description">El departamento de mecanizado CNC de Temco consta de nueve tornos y fresadoras: Torneado en diámetros de hasta 5",
-									Capacidad de máquina de tornillo de hasta 1,25", Fresado vertical con envolventes de trabajo de hasta 20" x 24".
-								</div>
-							</div>
-						</div>
-					</div> <!-- Block Ends -->
-					
-					<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/product_testing.jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Pruebas de producto</h1>
-								<div class="line"></div>
-								<div class="description">Temco ofrece una variedad de pruebas de productos adaptadas a sus necesidades, ya sea en proceso o como productos terminados.</div>
-							</div>
-						</div>
-					</div>
-					<!-- Block Ends -->
-					
-						<!-- Block Starts -->
-						<div class="col-lg-6 col-md-6 block">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/tube_bending.jpg" class="img-responsive" alt=""></div>
-								<div class="col-lg-7 col-md-7">
-									<h1>Doblado de tubos</h1>
-									<div class="line"></div>
-									<div class="description">Temco utiliza doblado con mandril y troqueles de ala doblada de alto volumen para
-										doblar tubos en diámetros de 1/8"-5" en una variedad de metales.
-										
-									</div>
-								</div>
-							</div>
-						</div> <!-- Block Ends -->
 
-						<!-- Block Starts -->
-						<div class="col-lg-6 col-md-6 block">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/Precision_Assembly_index.jpg" class="img-responsive" alt=""></div>
-								<div class="col-lg-7 col-md-7">
-									<h1>Montaje de precisión</h1>
-									<div class="line"></div>
-									<div class="description">sin definir
-										
-									</div>
-								</div>
-							</div>
-						</div> <!-- Block Ends -->
-							<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/Die_Casting_2.jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Fundición a presión</h1>
-								<div class="line"></div>
-								<div class="description">Diseño y fabricación de moldes de fundición a presión</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Block Ends -->
-					<!-- Block Starts -->
-					<!-- <div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1></h1>
-								<div class="line"></div>
-								<div class="description"></div>
-							</div>
-						</div>
-					</div> -->
-					
-					<!-- Block Ends -->
-					<!-- Block Starts -->
-					<div class="col-lg-6 col-md-6 block">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/Metal Stamping_what.jpg" class="img-responsive" alt=""></div>
-							<div class="col-lg-7 col-md-7">
-								<h1>Estampado de metal</h1>
-								<div class="line"></div>
-								<div class="description">Corte y conformado, diseño de troqueles y fabricación a pedido.</div>
-							</div>
-						</div>
-					</div>
-					<!-- Block Ends -->
-						<!-- Block Starts -->
-						<div class="col-lg-6 col-md-6 block">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 picture"><img src="img/What-We-Do-Capabilities/in_house_tooling.jpg" class="img-responsive" alt=""></div>
-								<div class="col-lg-7 col-md-7">
-									<h1>Herramientas y prototipos internos</h1>
-									<div class="line"></div>
-									<div class="description">Diseño iterativo rápido para reducir el tiempo de comercialización. Temco cuenta con un equipo de fabricantes de herramientas y troqueles calificados que producen todo internamente.
-										herramientas y accesorios para prototipos y series de producción de alto rendimiento. 
-										
-									</div>
-								</div>
-							</div>
-						</div> <!-- Block Ends -->
+	<div class="container-fluid modern-3-cols py-5 bg-light">
+		<div class="row text-center">
 
-					<!-- Block Starts -->
+			<div class="container modern-3-cols py-5">
+				<div class="row text-center">
+					<!-- Product Line -->
+					<div class="col-md-4 mb-4">
+						<div class="card h-100 shadow-sm border-0 rounded-4 p-4 mt-10">
+							<div class="mb-3 text-primary fs-1"><i class="fa fa-industry"></i></div>
+							<h3 class="fw-semibold">Línea de productos</h3>
+							<p class="text-muted">
+								Con más de cincuenta años de experiencia como fabricante de equipos originales (OEM) en componentes para tanques de combustible de camiones de servicio pesado, Temco ofrece componentes estándar y personalizados que cumplen y superan los requisitos de la Administración Federal de Seguridad de Autotransportistas (FMCSA).
+							</p>
+							<a href="products.html" class="btn btn-outline-primary rounded-pill mt-2">Ver productos</a>
+						</div>
+					</div>
+
+					<!-- About Temco -->
+					<div class="col-md-4 mb-4">
+						<div class="card h-100 shadow-sm border-0 rounded-4 p-4 bg-dark text-white">
+							<div class="mb-3 text-warning fs-1"><i class="fa fa-thumbs-up"></i></div>
+							<h3 class="fw-semibold">Acerca de Temco</h3>
+							<p>
+								Desde 1966, Temco Engineered Products, Inc. ha diseñado y fabricado una línea completa de componentes para tanques de combustible para la industria del transporte, incluyendo a los fabricantes de equipos originales (OEM) de camiones de Norteamérica. Temco se ha convertido en un experto internacional en tanques de combustible y sus componentes.
+							</p>
+							<a href="about-us.html" class="btn btn-outline-light rounded-pill mt-2">Leer Mas</a>
+						</div>
+					</div>
+
+					<!-- Contact -->
+					<div class="col-md-4 mb-4">
+						<div class="card h-100 shadow-sm border-0 rounded-4 p-4">
+							<div class="mb-3 text-danger fs-1"><i class="fa fa-envelope-open-text"></i></div>
+							<h3 class="fw-semibold">Contacto para una cotización</h3>
+							<p class="text-muted">
+								Puede contactarnos a través de un formulario. Será un placer atenderle.
+							</p>
+							<a href="contacto.html" class="btn btn-outline-danger rounded-pill mt-2">Contacto</a>
+						</div>
+					</div>
 				</div>
-				<!-- Row Starts -->
-				<div class="button visible-xs"><a href="">All Services</a></div>
 			</div>
+
 		</div>
-		<!-- /. WHAT WE OFFER ENDS
+	</div>
+	<!-- THREE COLUMNS ENDS
 			========================================================================= -->
-		<!-- FEATURED PRODUCTS STARTS
+	<!-- WHAT WE OFFER STARTS
 			========================================================================= -->
-		<div class="featured-products top-border parallax-1">
+
+	<div class="what-we-offer">
+		<div class="dark-grey header">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-4">
-						<h1>Productos Destacados</h1>
-						<div class="doubleline-2"></div>
+					<div class="col-lg-12">
+						<h1><span>Que hacemos</span></h1>
+						<div class="pull-right button hidden-xs"><a href="capabilities.html">Todas las capacidades</a></div>
 					</div>
-					<div class="col-lg-8">
-						<div id="options">
-							<ul id="filters" class="option-set right clearfix" data-option-key="filter">
-								
-								<!-- <li>
-									<div class="line"></div>
-									<a href="#filter" data-option-value=".municipal" class="selected">Productos Temco</a>
-								</li> -->
-								
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="" id="mansory-effect">
-
-					
-					<!-- Products -->
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Fuel-Tank-Adapters.jpg" class="img-responsive" alt="">
-							<!-- Picture Overlay Starts -->
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Fuel-Tank-Adapters.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							<!-- Picture Overlay Ends -->
-						</div>
-						<div class="info">
-							<h2>ADAPTADORES DE DEPÓSITO DE COMBUSTIBLE</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Vents.jpg" class="img-responsive" alt="">
-							<!-- Picture Overlay Starts -->
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Vents.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							<!-- Picture Overlay Ends -->
-						</div>
-						<div class="info">
-							<h2>RESPIRADEROS</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Brackets.jpg" class="img-responsive" alt="">
-							<!-- Picture Overlay Starts -->
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Brackets.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							<!-- Picture Overlay Ends -->
-						</div>
-						<div class="info">
-							<h2>SOPORTES</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Fuel-tank.jpg" class="img-responsive" alt="">
-							<!-- Picture Overlay Starts -->
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Fuel-tank.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							<!-- Picture Overlay Ends -->
-						</div>
-						<div class="info">
-							<h2>BOLSILLOS DE LLENADO DEL DEPÓSITO DE COMBUSTIBLE</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-				
 				</div>
 			</div>
 		</div>
+		<div class="services-container">
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/Die_Casting_2.jpg" alt="Die Casting" class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">FUNDICIÓN A PRESIÓN</div>
+					<div class="service-desc">Diseño y fabricación de moldes de fundición a presión</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/Metal_Stamping_cap.jpg" alt="Metal Stamping"
+					class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">ESTAMPADO DE METAL</div>
+					<div class="service-desc">Troquelado y conformado, diseño de matrices y fabricación bajo pedido.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/Fabrication_cap.jpg" alt="Fabrication" class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">FABRICACIÓN</div>
+					<div class="service-desc">Temco combina nuestra experiencia en estampación, soldadura, fundición a presión y doblado de tubos para producir fabricaciones terminadas según las especificaciones del cliente.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/product_testing_cap.jpg" alt="Product Testing"
+					class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">PRUEBAS DE PRODUCTOS</div>
+					<div class="service-desc">Temco ofrece una variedad de pruebas de productos adaptadas a sus necesidades, ya sea en proceso o como productos terminados.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/Engineering.jpg" alt="Engineering" class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">INGENIERÍA</div>
+					<div class="service-desc">Temco ofrece ingeniería personalizada y diseño de nuevos productos, respaldados por sus cincuenta años de experiencia como proveedor OEM para la industria del transporte y el cumplimiento de la norma ISO 9001:2015.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/CNC_cap.jpg" alt="CNC Machining" class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">MECANIZADO CNC</div>
+					<div class="service-desc">El departamento de mecanizado CNC de Temco consta de nueve tornos y fresadoras: Torneado en diámetros de hasta 5", capacidad de roscado de hasta 1,25" y fresado vertical con áreas de trabajo de hasta 20" x 24".</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/Welding_cap.jpg" alt="Production Welding" class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">SOLDADURA DE PRODUCCIÓN</div>
+					<div class="service-desc">Soldadura a medida y fabricación de producción. Soldadura certificada con TIG y MIG. Soldadura especializada de aluminio. Equipo de soldadura digital Fronius computarizado.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/in_house_tooling_cap.jpg" alt="Tooling and Prototyping"
+					class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">HERRAMIENTAS Y PROTOTIPOS INTERNOS</div>
+					<div class="service-desc">Diseño iterativo rápido para reducir el tiempo de comercialización. Temco cuenta con un equipo de fabricantes de herramientas y matrices cualificados que producen todas las herramientas y accesorios internos para prototipos y series de producción de alto rendimiento.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/tube_bending_cap.jpg" alt="Tooling and Prototyping"
+					class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">DOBLADO DE TUBOS</div>
+					<div class="service-desc">Temco utiliza máquinas de doblado con mandril y matrices de doblado de alto volumen para doblar tubos con diámetros de 1/8" a 5" en una variedad de metales.</div>
+				</div>
+			</div>
+			<div class="service-card">
+				<img src="img/What-We-Do-Capabilities/Precision_Assembly.jpg" alt="Tooling and Prototyping"
+					class="service-image">
+				<div class="service-content">
+					<span class="highlight"></span>
+					<div class="service-title">MONTAJE DE PRECISIÓN</div>
+					<div class="service-desc"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- Row Starts -->
+	<div class="button visible-xs"><a href="">Todos los servicios</a></div>
+	</div>
+	</div>
+	<!-- /. WHAT WE OFFER ENDS
+			========================================================================= -->
+	<!-- FEATURED PRODUCTS STARTS
+			========================================================================= -->
+
+
+	<!--Seccion de prueba inicio-->
+	<section class="featured-section">
+		<h2>Productos destacados</h2>
+		<div class="product-grid">
+
+			<div class="card">
+				<img src="img/Products/Fuel-Tank-Adapters.jpg" alt="Fuel Tank Adapters">
+				<div class="card-body">
+					<h3>Adaptadores para tanques de combustible</h3>
+				</div>
+			</div>
+
+			<div class="card">
+				<img src="img/Products/Vents.jpg" alt="Vents">
+				<div class="card-body">
+					<h3>Ventilaciones</h3>
+				</div>
+			</div>
+
+			<div class="card">
+				<img src="img/Products/Brackets.jpg" alt="Brackets">
+				<div class="card-body">
+					<h3>Soportes</h3>
+				</div>
+			</div>
+
+			<div class="card">
+				<img src="img/Products/Fuel-tank.jpg" alt="Fuel Tank Fill Pockets">
+				<div class="card-body">
+					<h3>Bolsillos de llenado del tanque de combustible</h3>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!--fin inicio seccion de prueba-->
+
+
+
+	<div class="clients light-grey">
+		<div class="dark-grey header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1><span>Clientes</span></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<div class="clients-section">
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide"><img src="img/Clients/International_logo.jpg" alt="International"></div>
+      <div class="slide"><img src="img/clients/mack.png" alt="Mack"></div>
+      <div class="slide"><img src="img/Clients/Freightliner_logo.jpg" alt="Freightliner"></div>
+      <div class="slide"><img src="img/Clients/paccar.jpg" alt="Paccar"></div>
+      <div class="slide"><img src="img/Clients/volvo_logo.jpg" alt="Volvo"></div>
+      <!-- 👇 se repiten para hacer el loop infinito -->
+      <div class="slide"><img src="img/Clients/International_logo.jpg" alt="International"></div>
+      <div class="slide"><img src="img/clients/mack.png" alt="Mack"></div>
+      <div class="slide"><img src="img/Clients/Freightliner_logo.jpg" alt="Freightliner"></div>
+      <div class="slide"><img src="img/Clients/paccar.jpg" alt="Paccar"></div>
+      <div class="slide"><img src="img/Clients/volvo_logo.jpg" alt="Volvo"></div>
+    </div>
+  </div>
+</div>
+
+	</div>
 	
+	<!-- /. SOCIAL ICONS ENDS -->
 
-		<div class="clients light-grey">
-			<div class="dark-grey header">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<h1><span>Clientes</span></h1>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<!-- <div class="col-lg-6 col-lg-offset-3 description">Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. 
-						Vestibulum volutpat pretium libero. Cras id dui, ut eros et nisl sagittis vestibulum. 
-					</div> -->
-				</div>
-				<div class="row">
-					<div class="col-lg-2 col-md-2 col-sm-4">
-						<div class="block"><img src="img/Clients/International_logo.jpg" class="img-responsive center-block" alt="" ></div>
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-4">
-						<div class="block"><img src="img/Clients/mack.png" class="img-responsive center-block" alt="" ></div>
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-4">
-						<div class="block"><img src="img/Clients/Freightliner_logo.jpg" class="img-responsive center-block" alt="" ></div>
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-4">
-						<div class="block"><img src="img/Clients/paccar.jpg" class="img-responsive center-block" alt="" ></div>
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-4">
-						<div class="block"><img src="img/Clients/volvo_logo.jpg" class="img-responsive center-block" alt="" ></div>
-					</div>
+	<!-- Footer nuevo  -->
+	<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/temco_hd_logo.png" alt="Temco Logo">
+	  <img src="img/made-in-the-usa-flag-small.jpg" alt="ISO 45001:2018 Certified"> <!-- NUEVO -->
+    </div>
 
-				</div>
-			</div>
-		</div>
-		<div class="dark-grey-2 social-icons">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-3 col-sm-3 logo"><img src="img/temco_hd_logo.png" width="128" height="100" alt="" ></div>
-					
-				</div>
-			</div>
-		</div>
-		<!-- /. SOCIAL ICONS ENDS
-			========================================================================= -->
-		<!-- FOOTER STARTS
-			========================================================================= -->
-		<footer class="dark-grey-3">
-			<div class="container">
-				<div class="row">
-					<!-- About Us Starts -->
-					
-					<div class="col-lg-3 col-md-3 col-sm-6 about-us">
-						<h1>Nuestro compromiso</h1>
-						<div class="description">Nos esforzamos por ofrecer un nivel de servicio que supere las expectativas de nuestros clientes.<br>
-							<br>Si tiene alguna pregunta sobre nuestros productos o servicios, no dude en ponerse en contacto con nosotros.</div>
-						<!-- <div class="button"><a href=""></a></div> -->
-					</div>
+    <!-- Commitment -->
+    <div class="footer-section">
+      <h3>NUESTRA COMPROMISO</h3>
+      <p>
+        Nos esforzamos por ofrecer un nivel de servicio que supere las expectativas de nuestros clientes. Si tiene alguna pregunta sobre nuestros productos o servicios, no dude en contactarnos.
+      </p>
+      <div class="iso-certifications">
+        <img src="img/VerisysISO _9001.png" alt="ISO 9001:2015">
+        <img src="img/VerisysISO _ 14001.png" alt="ISO 14001:2015">
+		 
+      </div>
+    </div>
 
-					<!-- Fliker Starts -->
-					<div class="col-lg-2 col-md-8 col-sm-5 flickr">
-						<img src="img/ISO_logo_small.jpg" alt="">
-						<img src="img/Temco_Website_Photos/ISO_14001_2015_company.jpg" alt="">
-						<br><br>
-						<img src="img/made-in-the-usa-flag-small.jpg" alt="">
-												
-					</div>
-					
-					<div class="col-lg-4 col-md-3 col-sm-6 about-us">
-						<h1>POLÍTICA DE CALIDAD</h1>
-						<div class="description">En Temco Engineered Products, Inc. estamos comprometidos a brindar productos y servicios de calidad a tiempo que superen las expectativas de nuestros clientes.</div>
-						
-						<div class="button">
-							<a href="coming-soon_es.html">Términos y Condiciones</a>
-							<a href="purchasing_agent_es.html">Agente de compras</a>
-						</div>
-						
-					</div>
-					<!-- Fliker Ends -->
-					
-					
-					<!-- Contact Info Starts -->
-					<div class="col-lg-3 col-md-3 col-sm-6 contact-info">
-						<h1>Información de ContactO</h1>
-						<address>
-							<div class="phone">1-800-275-0574 USA</div>
-						</address>
-						<address>
-							<strong>Dirección:</strong><br>
-							Temco Engineered Products, Inc <br>
-							10240 SE Mather Road <br>
-							Clackamas, Oregon 97015 USA <br>                       
-						</address>
-						<address>
-							<strong>Correo: </strong><br>
-							<a href="mailto:tomast@temcousa.com">tomast@temcousa.com</a>
-						</address>
-					</div>
-					<!-- Contact Info Ends -->
-				</div>
-			</div>
-		</footer>
-		<!-- /. FOOTER ENDS
+    <!-- Quality Policy -->
+    <div class="footer-section">
+      <h3>POLÍTICA DE CALIDAD</h3>
+      <p> En Temco Engineered Products, Inc. nos comprometemos a proporcionar productos y servicios de calidad a tiempo, que superen las expectativas de nuestros clientes.</p>
+      <div class="footer-buttons">
+        <a href="termsconditions_es.html" class="btn-footer">Terminos y condiciones</a>
+        <a href="purchasing_agent.html" class="btn-footer">Agente de compras</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>INFORMACIÓN DE CONTACTO</h3>
+      <p class="phone">1-800-275-0574 USA</p>
+      <p><strong>Direccion:</strong> Temco Engineered Products, Inc <br>
+      10240 SE Mather Road <br>
+      Clackamas, Oregon 97015 USA</p>
+     <a href="mailto:tomast@temcousa.com"> <p ><strong>Correo:</strong > tomast@temcouusa.com</p></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Derechos de autor 2025 <span>Hecho por Temco Engineered</span> Reservados todos los derechos.</p>
+  </div>
+	</footer>
+	<!-- /. FOOTER ENDS
 			========================================================================= -->
-		<!-- COPYRIGHT STARTS
+	
+	<!-- TO TOP STARTS
 			========================================================================= -->
-		<div class="dark-grey-2 copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">© derechos de autor 2021 <a href="">Hecho por Temco Engineered</a>  Reservados todos los derechos.</div>
-				</div>
-			</div>
-		</div>
-		<!-- /. COPYRIGHT ENDS
+	<a href="#" class="scrollup">Scroll</a>
+	<!-- /. TO TOP ENDS
 			========================================================================= -->
-		<!-- TO TOP STARTS
-			========================================================================= -->
-		<a href="#" class="scrollup">Scroll</a>      
-		<!-- /. TO TOP ENDS
-			========================================================================= -->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/en_es/index.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- REVOLUTION JS FILES -->
-		<script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-		<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-		<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/en_es/index.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- REVOLUTION JS FILES -->
+	<script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+	<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
 			(Load Extensions only on Local File Systems !  
-			The following part can be removed on Server for On Demand Loading) -->	
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-		<script type="text/javascript">
-			var tpj=jQuery;			
-			var revapi4;
-			tpj(document).ready(function() {
-				if(tpj("#rev_slider_46_1").revolution == undefined){
-					revslider_showDoubleJqueryError("#rev_slider_46_1");
-				}else{
-					revapi4 = tpj("#rev_slider_46_1").show().revolution({
-						sliderType:"standard",
-						jsFileLocation:"revolution/js/",
-						sliderLayout:"fullscreen",
-						dottedOverlay:"none",
-						delay:9000,
-						navigation: {
-							keyboardNavigation:"off",
-							keyboard_direction: "horizontal",
-							mouseScrollNavigation:"off",
-							onHoverStop:"off",
-							touch:{
-								touchenabled:"on",
-								swipe_threshold: 75,
-								swipe_min_touches: 1,
-								swipe_direction: "horizontal",
-								drag_block_vertical: false
-							}
-							,
-							arrows: {
-								style:"zeus",
-								enable:true,
-								hide_onmobile:true,
-								hide_under:600,
-								hide_onleave:true,
-								hide_delay:200,
-								hide_delay_mobile:1200,
-								tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
-								left: {
-									h_align:"left",
-									v_align:"center",
-									h_offset:30,
-									v_offset:0
-								},
-								right: {
-									h_align:"right",
-									v_align:"center",
-									h_offset:30,
-									v_offset:0
-								}
-							}
-							,
-							bullets: {
-								enable:true,
-								hide_onmobile:true,
-								hide_under:600,
-								style:"metis",
-								hide_onleave:true,
-								hide_delay:200,
-								hide_delay_mobile:1200,
-								direction:"horizontal",
-								h_align:"center",
-								v_align:"bottom",
-								h_offset:0,
-								v_offset:30,
-								space:5,
-								tmp:'<span class="tp-bullet-img-wrap">  <span class="tp-bullet-image"></span></span><span class="tp-bullet-title">{{title}}</span>'
-							}
-						},
-						viewPort: {
-							enable:true,
-							outof:"pause",
-							visible_area:"80%"
-						},
-						responsiveLevels:[1240,1024,778,480],
-						gridwidth:[1240,1024,778,480],
-						gridheight:[600,600,500,400],
-						lazyType:"none",
-						parallax: {
-							type:"mouse",
-							origo:"slidercenter",
-							speed:2000,
-							levels:[2,3,4,5,6,7,12,16,10,50],
-						},
-						shadow:0,
-						spinner:"off",
-						stopLoop:"off",
-						stopAfterLoops:-1,
-						stopAtSlide:-1,
-						
-						fullScreenAlignForce:"off",
-						fullScreenOffsetContainer: "",
-						fullScreenOffset: "0px",
-						disableProgressBar:"on",
-						hideThumbsOnMobile:"off",
-						
-						shuffle:"off",
-						autoHeight:"off",
-						hideThumbsOnMobile:"off",
-						hideSliderAtLimit:0,
-						hideCaptionAtLimit:0,
-						hideAllCaptionAtLilmit:0,
-						debugMode:false,
-						fallbacks: {
-							simplifyAll:"off",
-							nextSlideOnWindowFocus:"off",
-							disableFocusListener:false,
+			The following part can be removed on Server for On Demand Loading) -->
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+	<script type="text/javascript">
+		var tpj = jQuery;
+		var revapi4;
+		tpj(document).ready(function () {
+			if (tpj("#rev_slider_46_1").revolution == undefined) {
+				revslider_showDoubleJqueryError("#rev_slider_46_1");
+			} else {
+				revapi4 = tpj("#rev_slider_46_1").show().revolution({
+					sliderType: "standard",
+					jsFileLocation: "revolution/js/",
+					sliderLayout: "fullscreen",
+					dottedOverlay: "none",
+					delay: 9000,
+					navigation: {
+						keyboardNavigation: "off",
+						keyboard_direction: "horizontal",
+						mouseScrollNavigation: "off",
+						onHoverStop: "off",
+						touch: {
+							touchenabled: "on",
+							swipe_threshold: 75,
+							swipe_min_touches: 1,
+							swipe_direction: "horizontal",
+							drag_block_vertical: false
 						}
-					});
-				}
-			});	/*ready*/
-		</script>
-		<!-- Isotope Gallery --> 
-		<script type="text/javascript" src="js/isotope/jquery.isotope.min.js"></script> 
-		<script type="text/javascript" src="js/isotope/custom-isotope-mansory.js"></script>
-		<!-- Magnific Popup core JS file -->
-		<script type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.js"></script>
-		<!-- Flicker Feeds -->
-		<script src="js/flickr/jflickrfeed.min.js"></script>
-		<!-- Owl Carousel --> 
-		<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
-        <!-- FitVids --> 
-		<script type="text/javascript" src="js/fitvids/jquery.fitvids.js"></script>
-		<!-- ScrollTo --> 
-		<script type="text/javascript" src="js/nav/jquery.scrollTo.js"></script> 
-		<script type="text/javascript" src="js/nav/jquery.nav.js"></script>
-		<!-- Sticky --> 
-		<script type="text/javascript" src="js/sticky/jquery.sticky.js"></script>
-		<!-- Overlay Resize Menu -->
-		<script src="js/overlay-resizemenu/js/classie.js"></script>
-		<!-- Custom JS -->
-		<script src="js/custom/custom.js"></script>
-	</body>
+						,
+						arrows: {
+							style: "zeus",
+							enable: true,
+							hide_onmobile: true,
+							hide_under: 600,
+							hide_onleave: true,
+							hide_delay: 200,
+							hide_delay_mobile: 1200,
+							tmp: '<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
+							left: {
+								h_align: "left",
+								v_align: "center",
+								h_offset: 30,
+								v_offset: 0
+							},
+							right: {
+								h_align: "right",
+								v_align: "center",
+								h_offset: 30,
+								v_offset: 0
+							}
+						}
+						,
+						bullets: {
+							enable: true,
+							hide_onmobile: true,
+							hide_under: 600,
+							style: "metis",
+							hide_onleave: true,
+							hide_delay: 200,
+							hide_delay_mobile: 1200,
+							direction: "horizontal",
+							h_align: "center",
+							v_align: "bottom",
+							h_offset: 0,
+							v_offset: 30,
+							space: 5,
+							tmp: '<span class="tp-bullet-img-wrap">  <span class="tp-bullet-image"></span></span><span class="tp-bullet-title">{{title}}</span>'
+						}
+					},
+					viewPort: {
+						enable: true,
+						outof: "pause",
+						visible_area: "80%"
+					},
+					responsiveLevels: [1240, 1024, 778, 480],
+					gridwidth: [1240, 1024, 778, 480],
+					gridheight: [600, 600, 500, 400],
+					lazyType: "none",
+					parallax: {
+						type: "mouse",
+						origo: "slidercenter",
+						speed: 2000,
+						levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+					},
+					shadow: 0,
+					spinner: "off",
+					stopLoop: "off",
+					stopAfterLoops: -1,
+					stopAtSlide: -1,
+
+					fullScreenAlignForce: "off",
+					fullScreenOffsetContainer: "",
+					fullScreenOffset: "0px",
+					disableProgressBar: "on",
+					hideThumbsOnMobile: "off",
+
+					shuffle: "off",
+					autoHeight: "off",
+					hideThumbsOnMobile: "off",
+					hideSliderAtLimit: 0,
+					hideCaptionAtLimit: 0,
+					hideAllCaptionAtLilmit: 0,
+					debugMode: false,
+					fallbacks: {
+						simplifyAll: "off",
+						nextSlideOnWindowFocus: "off",
+						disableFocusListener: false,
+					}
+				});
+			}
+		});	/*ready*/
+	</script>
+	<!-- Isotope Gallery -->
+	<script type="text/javascript" src="js/isotope/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="js/isotope/custom-isotope-mansory.js"></script>
+	<!-- Magnific Popup core JS file -->
+	<script type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.js"></script>
+	<!-- Flicker Feeds -->
+	<script src="js/flickr/jflickrfeed.min.js"></script>
+	<!-- Owl Carousel -->
+	<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
+	<!-- FitVids -->
+	<script type="text/javascript" src="js/fitvids/jquery.fitvids.js"></script>
+	<!-- ScrollTo -->
+	<script type="text/javascript" src="js/nav/jquery.scrollTo.js"></script>
+	<script type="text/javascript" src="js/nav/jquery.nav.js"></script>
+	<!-- Sticky -->
+	<script type="text/javascript" src="js/sticky/jquery.sticky.js"></script>
+	<!-- Overlay Resize Menu -->
+	<script src="js/overlay-resizemenu/js/classie.js"></script>
+	<!-- Custom JS -->
+	<script src="js/custom/custom.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

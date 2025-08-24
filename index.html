@@ -327,6 +327,59 @@
 		.text-white-custom {
   color: rgb(0, 0, 0) !important;
 }
+.clients-section {
+  background: #eee;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.clients-title {
+  display: inline-block;
+  background: #ffcc00;
+  padding: 10px 30px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 10); /* 5 logos x 2 (duplicados) */
+  animation: scroll 15s linear infinite;
+}
+
+.slide {
+  width: 200px;        /* marco uniforme */
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;    /* fondo blanco opcional */
+  border: 1px solid #ddd;
+  margin: 0 15px; 
+}
+
+.slide img {
+  width: 100%;         /* ocupa el ancho máximo posible */
+  height: 100%;        /* ocupa el alto máximo posible */
+  object-fit: contain; /* se adapta sin deformarse */
+  
+}
+
+.slide img:hover {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 5)); } /* mueve 5 logos */
+}
 .footer {
   background-color: #111;
   color: #ccc;
@@ -448,7 +501,7 @@ background: #e6b800;
 				<li><a href="about-us.html">ABOUT US</a></li>
 				<li><a href="capabilities.html">CAPABILITIES</a></li>
 				<li><a href="products.html">PRODUCTS</a></li>
-				<li><a href="contact.php">CONTACT</a></li>
+				<li><a href="contact.html">CONTACT</a></li>
 				<div class="btn btn-warning" style="margin-top: -5.5px; font-size: 14px; "> <a href="die_casting.html">DIE CASTING</a></div>
 			</ul>
 
@@ -826,7 +879,7 @@ background: #e6b800;
 							<p class="text-muted">
 								Through a form you can contact us. It will be a pleasure to help you.
 							</p>
-							<a href="contact.php" class="btn btn-outline-danger rounded-pill mt-2">Contact</a>
+							<a href="contact.html" class="btn btn-outline-danger rounded-pill mt-2">Contact</a>
 						</div>
 					</div>
 				</div>
@@ -998,96 +1051,6 @@ background: #e6b800;
 
 
 
-
-
-
-	<!---
-		<div class="featured-products top-border parallax-1">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4">
-						<h1>Featured Products</h1>
-						<div class="doubleline-2"></div>
-					</div>
-					<div class="col-lg-8">
-						<div id="options">
-							<ul id="filters" class="option-set right clearfix" data-option-key="filter">
-						
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="" id="mansory-effect">
-
-					
-					
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Fuel-Tank-Adapters.jpg" class="img-responsive" alt="">
-							
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Fuel-Tank-Adapters.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							
-						</div>
-						<div class="info">
-							<h2>FUEL TANK ADAPTERS</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Vents.jpg" class="img-responsive" alt="">
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Vents.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-						</div>
-						<div class="info">
-							<h2>VENTS</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Brackets.jpg" class="img-responsive" alt="">
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Brackets.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							
-						</div>
-						<div class="info">
-							<h2>BRACKETS</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-					<figure class="item block municipal private">
-						<div class="picture">
-							<img src="img/Products/Fuel-tank.jpg" class="img-responsive" alt="">
-							
-							<div class="portfolio-overlay">
-								<div class="icons">
-									<div><span class="icon"><a class="image-popup-vertical-fit" href="img/Products/Fuel-tank.jpg" title="Caption will be here"><i class="fa fa-eye"></i></a></span></div>
-								</div>
-							</div>
-							
-						</div>
-						<div class="info">
-							<h2>FUEL TANK FILL POCKETS</h2>
-							<div class="description"></div>
-						</div>
-					</figure>
-				
-					
-				</div>
-			</div>
-		</div>
-	-->
 	<div class="clients light-grey">
 		<div class="dark-grey header">
 			<div class="container">
@@ -1099,37 +1062,24 @@ background: #e6b800;
 			</div>
 		</div>
 
+<div class="clients-section">
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide"><img src="img/Clients/International_logo.jpg" alt="International"></div>
+      <div class="slide"><img src="img/clients/mack.png" alt="Mack"></div>
+      <div class="slide"><img src="img/Clients/Freightliner_logo.jpg" alt="Freightliner"></div>
+      <div class="slide"><img src="img/Clients/paccar.jpg" alt="Paccar"></div>
+      <div class="slide"><img src="img/Clients/volvo_logo.jpg" alt="Volvo"></div>
+      <!-- 👇 se repiten para hacer el loop infinito -->
+      <div class="slide"><img src="img/Clients/International_logo.jpg" alt="International"></div>
+      <div class="slide"><img src="img/clients/mack.png" alt="Mack"></div>
+      <div class="slide"><img src="img/Clients/Freightliner_logo.jpg" alt="Freightliner"></div>
+      <div class="slide"><img src="img/Clients/paccar.jpg" alt="Paccar"></div>
+      <div class="slide"><img src="img/Clients/volvo_logo.jpg" alt="Volvo"></div>
+    </div>
+  </div>
+</div>
 
-
-		<div class="container">
-			<div class="row">
-				<!-- <div class="col-lg-6 col-lg-offset-3 description">Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. 
-						Vestibulum volutpat pretium libero. Cras id dui, ut eros et nisl sagittis vestibulum. 
-					</div> -->
-			</div>
-			<div class="row">
-				<div class="col-lg-2 col-md-2 col-sm-4">
-					<div class="block"><img src="img/Clients/International_logo.jpg" class="img-responsive center-block"
-							alt=""></div>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-4">
-					<div class="block"><img src="img/Clients/mack.png" class="img-responsive center-block" alt=""></div>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-4">
-					<div class="block"><img src="img/Clients/Freightliner_logo.jpg" class="img-responsive center-block"
-							alt=""></div>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-4">
-					<div class="block"><img src="img/Clients/paccar.jpg" class="img-responsive center-block" alt="">
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-4">
-					<div class="block"><img src="img/Clients/volvo_logo.jpg" class="img-responsive center-block" alt="">
-					</div>
-				</div>
-
-			</div>
-		</div>
 	</div>
 	
 	<!-- /. SOCIAL ICONS ENDS -->
@@ -1165,7 +1115,7 @@ background: #e6b800;
         and services on time that exceed the expectations of our customers.
       </p>
       <div class="footer-buttons">
-        <a href="coming-soon.html" class="btn-footer">TERMS & CONDITIONS</a>
+        <a href="termsconditions.html" class="btn-footer">TERMS & CONDITIONS</a>
         <a href="purchasing_agent.html" class="btn-footer">PURCHASING AGENTS</a>
       </div>
     </div>

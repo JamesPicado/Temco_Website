@@ -4,94 +4,406 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-    }
-    .contact-container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 450px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
+      padding: 0;
+      background: #f4f4f9;
       color: #333;
     }
-    label {
+    .navbar-nav .nav-link {
+			font-weight: 500;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-nav .nav-link:hover {
+			color: #ffc107;
+		}
+
+		.navbar {
+			background-color: rgba(0, 0, 0, 0.6);
+			/* fondo con transparencia */
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.form-select {
+			width: auto;
+		}
+
+		.main-navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			/* oscuro con transparencia */
+			z-index: 9999;
+			padding: 10px 0;
+		}
+
+		.navbar-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.navbar-logo img {
+			height: 60px;
+		}
+
+		.navbar-menu {
+			list-style: none;
+			display: flex;
+			gap: 30px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar-menu li a {
+			color: white;
+			text-decoration: none;
+			font-weight: 600;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-menu li a:hover,
+		.navbar-menu li a.active {
+			color: #ffc107;
+			/* amarillo */
+		}
+
+		.navbar-lang select {
+			background-color: white;
+			color: rgb(0, 0, 0);
+			border: 1px solid white;
+			padding: 4px 8px;
+			border-radius: 4px;
+		}
+		.text-white-custom {
+  color: rgb(0, 0, 0) !important;
+}
+
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 200px auto;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      
+      
+    }
+
+    .contact-info {
+      flex: 1;
+      padding: 40px;
+      background: #222;
+      color: #fff;
+      
+    }
+
+    .contact-info h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #ffd700;
+    }
+
+    .contact-info p {
+      margin: 25px 0;
+      font-size: 18px;
+    }
+
+    .contact-info p i {
+      color: #ffd700;
+      margin-right: 10px;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ffd700;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .contact-form {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #222;
+    }
+
+    .contact-form label {
       display: block;
       margin: 10px 0 5px;
       font-weight: bold;
-      color: #444;
     }
-    input, textarea {
+
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: border 0.2s;
-    }
-    input:focus, textarea:focus {
-      border-color: #007BFF;
-      outline: none;
-    }
-    textarea {
+      border-radius: 5px;
       resize: none;
-      height: 120px;
     }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #007BFF;
-      color: #fff;
+
+    .contact-form button {
+      padding: 12px 20px;
+      background: #ffd700;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s;
     }
-    button:hover {
-      background: #0056b3;
+
+    .contact-form button:hover {
+      background: #e6c200;
     }
-    .note {
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-      margin-top: 10px;
-    }
+
+    
+.footer {
+  background-color: #111;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.iso-certifications img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.iso-certifications img:hover {
+  transform: scale(1.05);
+}
+.iso-certifications {
+  flex-direction: column; /* Apila las imágenes una debajo de la otra */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espaciado entre imágenes */
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.btn-footer {
+  display: inline-block;
+  background: #ffcc00;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-footer:hover {
+background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.footer-bottom span {
+  color: #ffcc00;
+}
   </style>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="css/all-stylesheets.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link
+		href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,500,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
+
+  <nav class="main-navbar">
+		<div class="navbar-container">
+			<!-- Logo a la izquierda -->
+			<div class="navbar-logo">
+				<a href="index.html">
+					<img src="img/temco_hd_logo.png" alt="TEMCO Logo">
+				</a>
+			</div>
+
+			<!-- Menú centrado -->
+			<ul class="navbar-menu">
+				<li><a href="index.html" >HOME</a></li>
+				<li><a href="about-us.html">ABOUT US</a></li>
+				<li><a href="capabilities.html">CAPABILITIES</a></li>
+				<li><a href="products.html">PRODUCTS</a></li>
+				<li><a href="contact.html" class="active">CONTACT</a></li>
+				<div class="btn btn-warning" style="margin-top: -5.5px; font-size: 14px; "> <a href="die_casting.html">DIE CASTING</a></div>
+			</ul>
+
+			<!-- Selector de idioma a la derecha -->
+			<div class="navbar-lang">
+				<select onchange="document.location.href=this.value">
+					<option selected disabled>Language</option>
+					<option value="contact.html">English</option>
+					<option value="contact_es.html">Spanish</option>
+				</select>
+			</div>
+		</div>
+	</nav>
+
   <div class="contact-container">
-    <h2>Contáctanos</h2>
-    <form action="contact.php" method="POST">
-      <label for="name">Nombre</label>
-      <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+    <!-- Columna izquierda -->
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p><i class="fas fa-map-marker-alt"></i> Temco Engineered Products, Inc 10240 SE Mather Road Clackamas, Oregon 97015 USA</p>
+      <p><i class="fas fa-clock"></i> Business Hours: 7:00 AM to 5:00 PM PT, Monday - Friday</p>
+      <p><i class="fas fa-phone"></i> Telephone: 800-275-0574 | Local: 503-656-4789</p>
+           <p><i class="fas fa-envelope"></i> tomast@temcousa.com</p>
+      <p><i class="fas fa-globe"></i> www.temcousa.com</p>
+      
+    </div>
 
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+    <!-- Columna derecha -->
+    <div class="contact-form">
+      <h2>Send message</h2>
+      <form action="contact.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-      <label for="subject">Asunto</label>
-      <input type="text" id="subject" name="subject" placeholder="Motivo del mensaje" required>
+        <label for="name">Company:</label>
+        <input type="text" id="company" name="company" required>
 
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <label for="name">Your Phone:</label>
+        <input type="text" id="phone" name="phone" required>
 
-      <button type="submit">Enviar Mensaje</button>
-    </form>
-    <p class="note">Te responderemos lo más pronto posible.</p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <!-- Footer nuevo  -->
+	<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/temco_hd_logo.png" alt="Temco Logo">
+	  <img src="img/made-in-the-usa-flag-small.jpg" alt="ISO 45001:2018 Certified"> <!-- NUEVO -->
+    </div>
+
+    <!-- Commitment -->
+    <div class="footer-section">
+      <h3>OUR COMMITMENT</h3>
+      <p>
+        We strive to deliver a level of service that exceeds the expectations of our customers. 
+        If you have any questions about our products or services, please do not hesitate to contact us.
+      </p>
+      <div class="iso-certifications">
+        <img src="img/VerisysISO _9001.png" alt="ISO 9001:2015">
+        <img src="img/VerisysISO _ 14001.png" alt="ISO 14001:2015">
+		 
+      </div>
+    </div>
+
+    <!-- Quality Policy -->
+    <div class="footer-section">
+      <h3>QUALITY POLICY</h3>
+      <p>
+        At Temco Engineered Products, Inc. we are committed to providing quality products 
+        and services on time that exceed the expectations of our customers.
+      </p>
+      <div class="footer-buttons">
+        <a href="termsconditions.html" class="btn-footer">TERMS & CONDITIONS</a>
+        <a href="purchasing_agent.html" class="btn-footer">PURCHASING AGENTS</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>CONTACT INFO</h3>
+      <p class="phone">1-800-275-0574 USA</p>
+      <p><strong>Address:</strong> Temco Engineered Products, Inc <br>
+      10240 SE Mather Road <br>
+      Clackamas, Oregon 97015 USA</p>
+     <a href="mailto:tomast@temcousa.com"> <p ><strong>Email:</strong > tomast@temcouusa.com</p></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Copyrights 2025 <span>Made By Temco Engineered</span> All rights reserved.</p>
+  </div>
+	</footer>
+
 </body>
 </html>

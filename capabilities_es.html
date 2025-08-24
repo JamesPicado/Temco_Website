@@ -1,598 +1,507 @@
-<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>TEMCOUSA | CAPACIDADES</title>
-		<!-- All Stylesheets -->
-		<link href="css/all-stylesheets.css" rel="stylesheet">
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-		<!-- NAVIGATION STARTS
-			========================================================================= -->   
-		<nav id="navigation">
-			<div class="navbar navbar-inverse" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<!--  Logo Starts -->
-						<a class="navbar-brand" href="index_es.html"><img src="img/temco_hd_logo.png" width="128" height="100" alt=""></a>
-						<!-- Logo Ends -->                        
-					</div>
-					<div class="collapse navbar-collapse">
-						
-						<ul class="nav navbar-nav navbar-left pull-right">
-							<li><a href="index_es.html" class="external">INICIO</a></li>
-							<li><a href="about-us_es.html" class="external">SOBRE NOSOTROS</a></li>
-							<li class="current"><a href="capabilities_es.html" class="external">CAPACIDADES</a></li>
-							<li><a href="products_es.html" class="external">PRODUCTOS</a></li>
-							<li><a href="contact_es.php" class="external">CONTACTO</a></li>
-							<li><select name="ELEGIR" value="ELEGIR" onchange="document.location.href=this.value">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEMCOUSA | Capacidades</title>
+  <style>
+	body {
+  padding-top: 80px;
+}
+.card-body {
+ display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
 
-								<option selected disabled>Idioma</option>
-								
-								<option value="capabilities.html">Inglés</option>
-								<option value="capabilities_es.html">Español</option>
-							
-								
-								</select></li>
+.card-body .btn {
+   margin-top: auto;
+}
 
-							
-							<!-- <span class="en">Inglés</span>
-							<input type="checkbox" class="check" checked>
-							<span class="es">Español</span> -->
-						</ul>
-					<!--/.nav-collapse--> 
-				</div>
+.service-card {
+  width: 100%;
+  max-width: 280px;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.btn-warning {
+  font-weight: 600;
+  color: #000;
+}
+
+.modal-body p {
+  font-size: 16px;
+}
+.navbar-nav .nav-link {
+			font-weight: 500;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-nav .nav-link:hover {
+			color: #ffc107;
+		}
+
+		.navbar {
+			background-color: rgba(0, 0, 0, 0.6);
+			/* fondo con transparencia */
+			padding-top: 10px;
+			padding-bottom: 10px;
+			z-index: 1030; /* Bootstrap default */
+		}
+
+		.form-select {
+			width: auto;
+		}
+
+		.main-navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			/* oscuro con transparencia */
+			z-index: 9999;
+			padding: 10px 0;
+		}
+
+		.navbar-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.navbar-logo img {
+			height: 60px;
+		}
+
+		.navbar-menu {
+			list-style: none;
+			display: flex;
+			gap: 30px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar-menu li a {
+			color: white;
+			text-decoration: none;
+			font-weight: 600;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-menu li a:hover,
+		.navbar-menu li a.active {
+			color: #ffc107;
+			/* amarillo */
+		}
+
+		.navbar-lang select {
+			background-color: white;
+			color: rgb(0, 0, 0);
+			border: 1px solid white;
+			padding: 4px 8px;
+			border-radius: 4px;
+		}
+		.modal-backdrop.show {
+  z-index: 2000 !important;
+}
+
+.modal.show {
+  z-index: 2050 !important;
+}
+.footer {
+  background-color: #111;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.iso-certifications img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.iso-certifications img:hover {
+  transform: scale(1.05);
+}
+.iso-certifications {
+  flex-direction: column; /* Apila las imágenes una debajo de la otra */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espaciado entre imágenes */
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.btn-footer {
+  display: inline-block;
+  background: #ffcc00;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-footer:hover {
+background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.footer-bottom span {
+  color: #ffcc00;
+}
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+   
+  
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="main-navbar">
+		<div class="navbar-container">
+			<!-- Logo a la izquierda -->
+			<div class="navbar-logo">
+				<a href="index.html">
+					<img src="img/temco_hd_logo.png" alt="TEMCO Logo">
+				</a>
 			</div>
-		</nav>
-		<!-- /. NAVIGATION ENDS
-			========================================================================= -->
-		<!-- SERVICES PAGE CONTENTS STARTS
-			========================================================================= -->
-		<div class="services-2">
-			<!-- ABOUT US BANNER STARTS -->
-			<div class="inner-banner parallax-3">
-				<div class="header">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12">
-								<h1><span>CAPACIDADES</span></h1>
-								<ol class="breadcrumb">
-									<li><a href="index_es.html">Inicio</a></li>
-									<li class="active">Capacidades</li>
-								</ol>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- ABOUT US BANNER ENDS -->		
-			<!-- ABOUT US INTRO STARTS -->
-			<div class="container contents">
-				<div class="row">
-					<!-- Left Column Starts -->
-						<!-- Accordian Starts -->
-						<div class="col-lg-3 col-md-6">
-							<div class="panel-group" id="accordion">
-								<div class="panel panel-default">
-									<div class="panel-heading color-1">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
-												Fundición a presión
-											</a><i class= "indicator fa fa-minus pull-right" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-1"></i>
-										</h4>
-									</div>
-									<div id="collapse-1" class= "panel-collapse collapse in">
-										<div class="panel-body">
-											<ul>
-												<li>Máquinas de fundición a presión Prince con capacidades de 450 y 600 toneladas.</li>
-												<li>Diseño y fabricación interna de moldes de fundición a presión</li>
-												<li>Mantenimiento y reemplazo interno de troqueles</li>
-												<li>Inyección en cámara fría con aleaciones de aluminio 369, 380, 413 y 518</li>
-												<li>Aleaciones adicionales por necesidad del cliente</li>
-												<li>Capacidades secundarias de mecanizado y soldadura</li>
-												<li>Ensamblaje de precisión secundario disponible</li>
-											
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-2">
-												Estampado de metal
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-2"></i>
-										</h4>
-									</div>
-									<div id="collapse-2" class="panel-collapse collapse">
-										<div class="panel-body">
-											<ul>
-												<li>Todos los troqueles de estampado están diseñados, construidos y mantenidos internamente</li>
-												<li>Troqueles progresivos, en blanco, de forma, de dibujo y de una sola operación</li>
-												<li>Operaciones de montaje tanto mecánicas como neumáticas</li>
-												<li>Capacidad de prensa de torreta</li>
-												<li>Alimentadores de bobina</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-3">
-												Fabricación
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-3"></i>
-										</h4>
-									</div>
-									<div id="collapse-3" class="panel-collapse collapse">
-										<div class="panel-body">
-											<ul>
-												<li>Cortar hasta 12 pies</li>
-												<li>Operaciones de plegadoras de hasta 10 pies</li>
-												<li>Rollo deslizante de hasta 8,5 pies</li>
-												<li>Prensa de torreta con cama de 5'x8'</li>
-												<li>Laminación</li>
-												<li>Accesorios de soldadura personalizados</li>
-												<li>Curvado de tubos</li>
-												<li>Cuentas de tubo</li>
-												<li>Fabricación de tanques</li>
-												<li>Fabricación de producción y soldadura personalizada</li>
-	
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-4">
-												Ingeniería
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-4"></i>
-										</h4>
-									</div>
-									<div id="collapse-4" class="panel-collapse collapse">
-										<div class="panel-body">
-											Temco ofrece ingeniería personalizada y diseño de nuevos productos respaldados por sus cincuenta años de experiencia como proveedor OEM para la industria del transporte y el cumplimiento de la norma ISO 9001:2015. <br>La ingeniería de servicio completo proporciona una mejora continua del producto y una reducción de costos. La participación temprana de ingeniería en los diseños de los clientes redujo los costos y aceleró el tiempo de comercialización para los clientes de Temco.
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-5">
-												Pruebas de producto
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-5"></i>
-										</h4>
-									</div>
-									<div id="collapse-5" class="panel-collapse collapse">
-										<div class="panel-body">
-											<ul>
-												<li>Pruebas de flujo</li>
-												<li>Pruebas de fugas de conjuntos, juntas y uniones soldadas</li>
-												<li>Prueba de caída del tanque de combustible líquido según los requisitos de la sección 393.67 de la FMCSA</li>
-												<li>Prueba en cámara ambiental -100° a 10° C</li>
-												<li>Pruebas de resistencia de componentes y ensamblajes</li>
-												<li>Pruebas de materiales fusibles</li>
-												<li>Ensayos de tracción hasta 100 kN</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-6">
-												Mecanizado CNC
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-6"></i> 
-										</h4>
-									</div>
-									<div id="collapse-6" class="panel-collapse collapse">
-										<div class="panel-body">
-											El departamento de mecanizado CNC de Temco consta de nueve tornos y fresadoras:
-											<ul>
-												<li>Torneado en diámetros de hasta 5"</li>
-												<li>Capacidad de máquina de tornillos de hasta 1.25"</li>
-												<li>Fresado vertical con envolventes de trabajo de hasta 20" x 24"</li>
-												<li>Programación a través de Mastercam</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-7">
-												Soldadura de producción
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-7"></i> 
-										</h4>
-									</div>
-									<div id="collapse-7" class="panel-collapse collapse">
-										<div class="panel-body">
-											<ul>
-												<li> Soldadura certificada con TIG y MIG</li>
-												<li>Soldadura especializada de aluminio</li>
-												<li>Soldadura de acero al carbono e inoxidable con GMAW, FCAW y GTAW</li>
-												<li>Equipos de soldadura computarizados y digitales de Fronius</li>
-												<li>Extensos procedimientos y registros de soldadura documentados</li>
-												<li>Evaluación y capacitación continuas del desempeño de los soldadores</li>
-												<li>Líder de la industria en soldadura sin fugas de componentes de fundición a presión</li>
-												<li>Soldadura semiautomática para soluciones de alto rendimiento</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-8">
-												Herramientas y prototipos internos
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-8"></i> 
-										</h4>
-									</div>
-									<div id="collapse-8" class="panel-collapse collapse">
-										<div class="panel-body">
-											Temco cuenta con un personal calificado de fabricantes de herramientas y troqueles que produce todas las herramientas y accesorios internos para prototipos y series de producción de alto rendimiento. Los tornos CNC, EDM y las capacidades de impresión 3D producen productos manufacturados eficientes desde el prototipo hasta la producción.<br> Temco está equipado para brindarle tiempos de respuesta rápidos y ahorros de costos para sus necesidades de prototipos. Nuestros expertos en herramientas pueden producir simultáneamente los troqueles y accesorios necesarios para la fabricación en volumen.
 
+			<!-- Menú centrado -->
+			<ul class="navbar-menu">
+				<li><a href="index_es.html">Inicio</a></li>
+				<li><a href="about-us_es.html">Sobre Nosotros</a></li>
+				<li><a href="capabilities_es.html" class="active">Capacidades</a></li>
+				<li><a href="products_es.html">Productos</a></li>
+				<li><a href="contact_es.html">Contacto</a></li>
+				<div class="btn btn-warning" style="margin-top: -5.5px; font-size: 14px; "> <a href="die_casting.html">DIE CASTING</a></div>
+			</ul>
 
-											<!-- <ul>
-												<li>Turning in diameters up to 5"</li>
-												<li>Screw machine capacity up to 1.25"</li>
-												<li>Vertical milling with working envelopes up to 20" x 24"</li>
-											</ul> -->
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading color-2">
-										<h4 class="panel-title">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-9">
-												Doblado de tubos
-											</a><i class="indicator fa fa-plus pull-right" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-9"></i> 
-										</h4>
-									</div>
-									<div id="collapse-9" class="panel-collapse collapse">
-										<div class="panel-body">
-											Temco utiliza doblado con mandril y troqueles de ala de doblado de alto volumen para doblar tubos en diámetros de 1/8"-5" en una variedad de metales. Materiales:
-											<ul>
-												<li>Acero</li>
-												<li>Acero inoxidable</li>
-												<li>Aluminio</li>
-												<li>Latón</li>
-												<li>Otros metales por pedido</li>
-											</ul>
-											Temco puede realizar operaciones secundarias a su tubería en nuestras celdas de estampado, soldadura, CNC y ensamblaje.
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Accordian Ends -->
-					<!-- Left Column Ends -->
-					<!-- Right Column Starts -->
-					<div class="col-lg-9 col-md-9 col-sm-9">
-						<div class="row">
-							<!-- Block Starts -->
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/Die_Casting_2_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-1"></div>
-									<div class="title">Fundición a presión</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/Metal_Stamping_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-2"></div>
-									<div class="title">Estampado de metal	</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/Fabrication_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-3"></div>
-									<div class="title">Fabricación</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/Eng1.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-4"></div>
-									<div class="title">Ingeniería</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/product_testing_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-5"></div>
-									<div class="title">Pruebas de producto</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/CNC_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-6"></div>
-									<div class="title">Mecanizado CNC</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/Welding_cap.jpg" class="img-responsive" alt=""  "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-7"></div>
-									<div class="title">Soldadura de producción</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/in_house_tooling_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-8"></div>
-									<div class="title">Herramientas y prototipos internos</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6">
-								<div class="block">
-									<div class="picture"><img src="img/What-We-Do-Capabilities/tube_bending_cap.jpg" class="img-responsive" alt="" "accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-9"></div>
-									<div class="title">Doblado de tubos</div>
-									<!-- <div class="description">Nunc molestie sapien tempor placerat Cras et lectus Etiam sit amet turpis. Suspendisse erad Proin ans ipsum vitae orci porta.</div> -->
-								</div>
-							</div>
-							
-							
-							
-							
-						
-						</div>
-					</div>
-					<!-- Right Column Ends -->
-				</div>
+			<!-- Selector de idioma a la derecha -->
+			<div class="navbar-lang">
+				<select onchange="document.location.href=this.value">
+					<option selected disabled>Idioma</option>
+					<option value="capabilities.html">Ingles</option>
+					<option value="capabilities_es.html">Espanol</option>
+				</select>
 			</div>
-			<!-- ABOUT US INTRO ENDS -->			
+
 		</div>
-		<!-- /. SERVICES PAGE CONTENTS ENDS
-			========================================================================= -->
-		<!-- SOCIAL ICONS STARTS
-			========================================================================= -->
-			<div class="dark-grey-2 social-icons">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-sm-3 logo"><img src="img/temco_hd_logo.png" width="128" height="100" alt="" ></div>
-						
-					</div>
-				</div>
-			</div>
-		<!-- /. SOCIAL ICONS ENDS
-			========================================================================= -->
-		<!-- FOOTER STARTS
-			========================================================================= -->
-			<footer class="dark-grey-3">
-				<div class="container">
-					<div class="row">
-						<!-- About Us Starts -->
-						
-						<div class="col-lg-3 col-md-3 col-sm-6 about-us">
-							<h1>Nuestro compromiso</h1>
-							<div class="description">Nos esforzamos por ofrecer un nivel de servicio que supere las expectativas de nuestros clientes.<br>
-								<br>Si tiene alguna pregunta sobre nuestros productos o servicios, no dude en ponerse en contacto con nosotros.</div>
-							<!-- <div class="button"><a href=""></a></div> -->
-						</div>
-						
-						
-						<!-- Fliker Starts -->
-					<div class="col-lg-2 col-md-8 col-sm-5 flickr">
-						<img src="img/ISO_logo_small.jpg" alt="">
-						<img src="img/Temco_Website_Photos/ISO_14001_2015_company.jpg" alt="">
-						<br><br>
-						<img src="img/made-in-the-usa-flag-small.jpg" alt="">
-												
-					</div>
-					
-					<div class="col-lg-4 col-md-3 col-sm-6 about-us">
-						<h1>POLÍTICA DE CALIDAD</h1>
-						<div class="description">En Temco Engineered Products, Inc. estamos comprometidos a brindar productos y servicios de calidad a tiempo que superen las expectativas de nuestros clientes.</div>
-						
-						<div class="button">
-							<a href="coming-soon_es.html">Términos y Condiciones</a>
-							<a href="purchasing_agent_es.html">Agente de compras</a>
-						</div>
-						
-					</div>
-					<!-- Fliker Ends -->
-						<!-- Contact Info Starts -->
-						<div class="col-lg-3 col-md-3 col-sm-6 contact-info">
-							<h1>Información de ContactO</h1>
-							<address>
-								<div class="phone">1-800-275-0574 USA</div>
-							</address>
-							<address>
-								<strong>Dirección:</strong><br>
-								Temco Engineered Products, Inc <br>
-								10240 SE Mather Road <br>
-								Clackamas, Oregon 97015 USA <br>                       
-							</address>
-							<address>
-								<strong>Correo: </strong><br>
-								<a href="mailto:tomast@temcousa.com">tomast@temcousa.com</a>
-							</address>
-						</div>
-						<!-- Contact Info Ends -->
-					</div>
-				</div>
-			</footer>
-			<!-- /. FOOTER ENDS
-				========================================================================= -->
-			<!-- COPYRIGHT STARTS
-				========================================================================= -->
-			<div class="dark-grey-2 copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">© derechos de autor 2021 <a href="">Hecho por Temco Engineered</a>  Reservados todos los derechos.</div>
-					</div>
-				</div>
-			</div>
-			<!-- /. COPYRIGHT ENDS
-			========================================================================= -->
-		<!-- TO TOP STARTS
-			========================================================================= -->
-		<a href="#" class="scrollup">Scroll</a>      
-		<!-- /. TO TOP ENDS
-			========================================================================= -->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/en_es/cap.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- REVOLUTION JS FILES -->
-		<script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js"></script>
-		<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-		<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
-			(Load Extensions only on Local File Systems !  
-			The following part can be removed on Server for On Demand Loading) -->	
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-		<script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-		<script type="text/javascript">
-			var tpj=jQuery;			
-			var revapi4;
-			tpj(document).ready(function() {
-				if(tpj("#rev_slider_46_1").revolution == undefined){
-					revslider_showDoubleJqueryError("#rev_slider_46_1");
-				}else{
-					revapi4 = tpj("#rev_slider_46_1").show().revolution({
-						sliderType:"standard",
-						jsFileLocation:"revolution/js/",
-						sliderLayout:"fullscreen",
-						dottedOverlay:"none",
-						delay:9000,
-						navigation: {
-							keyboardNavigation:"off",
-							keyboard_direction: "horizontal",
-							mouseScrollNavigation:"off",
-							onHoverStop:"off",
-							touch:{
-								touchenabled:"on",
-								swipe_threshold: 75,
-								swipe_min_touches: 1,
-								swipe_direction: "horizontal",
-								drag_block_vertical: false
-							}
-							,
-							arrows: {
-								style:"zeus",
-								enable:true,
-								hide_onmobile:true,
-								hide_under:600,
-								hide_onleave:true,
-								hide_delay:200,
-								hide_delay_mobile:1200,
-								tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
-								left: {
-									h_align:"left",
-									v_align:"center",
-									h_offset:30,
-									v_offset:0
-								},
-								right: {
-									h_align:"right",
-									v_align:"center",
-									h_offset:30,
-									v_offset:0
-								}
-							}
-							,
-							bullets: {
-								enable:true,
-								hide_onmobile:true,
-								hide_under:600,
-								style:"metis",
-								hide_onleave:true,
-								hide_delay:200,
-								hide_delay_mobile:1200,
-								direction:"horizontal",
-								h_align:"center",
-								v_align:"bottom",
-								h_offset:0,
-								v_offset:30,
-								space:5,
-								tmp:'<span class="tp-bullet-img-wrap">  <span class="tp-bullet-image"></span></span><span class="tp-bullet-title">{{title}}</span>'
-							}
-						},
-						viewPort: {
-							enable:true,
-							outof:"pause",
-							visible_area:"80%"
-						},
-						responsiveLevels:[1240,1024,778,480],
-						gridwidth:[1240,1024,778,480],
-						gridheight:[600,600,500,400],
-						lazyType:"none",
-						parallax: {
-							type:"mouse",
-							origo:"slidercenter",
-							speed:2000,
-							levels:[2,3,4,5,6,7,12,16,10,50],
-						},
-						shadow:0,
-						spinner:"off",
-						stopLoop:"off",
-						stopAfterLoops:-1,
-						stopAtSlide:-1,
-						
-						fullScreenAlignForce:"off",
-						fullScreenOffsetContainer: "",
-						fullScreenOffset: "0px",
-						disableProgressBar:"on",
-						hideThumbsOnMobile:"off",
-						
-						shuffle:"off",
-						autoHeight:"off",
-						hideThumbsOnMobile:"off",
-						hideSliderAtLimit:0,
-						hideCaptionAtLimit:0,
-						hideAllCaptionAtLilmit:0,
-						debugMode:false,
-						fallbacks: {
-							simplifyAll:"off",
-							nextSlideOnWindowFocus:"off",
-							disableFocusListener:false,
-						}
-					});
-				}
-			});	/*ready*/
-		</script>
-		<!-- Isotope Gallery --> 
-		<script type="text/javascript" src="js/isotope/jquery.isotope.min.js"></script> 
-		<script type="text/javascript" src="js/isotope/custom-isotope-mansory.js"></script>
-		<!-- Magnific Popup core JS file -->
-		<script type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.js"></script>
-		<!-- Flicker Feeds -->
-		<script src="js/flickr/jflickrfeed.min.js"></script>
-		<!-- Owl Carousel --> 
-		<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
-        <!-- FitVids --> 
-		<script type="text/javascript" src="js/fitvids/jquery.fitvids.js"></script>
-		<!-- ScrollTo --> 
-		<script type="text/javascript" src="js/nav/jquery.scrollTo.js"></script> 
-		<script type="text/javascript" src="js/nav/jquery.nav.js"></script>
-		<!-- Sticky --> 
-		<script type="text/javascript" src="js/sticky/jquery.sticky.js"></script>
-		<!-- Overlay Resize Menu -->
-		<script src="js/overlay-resizemenu/js/classie.js"></script>
-		<!-- Custom JS -->
-		<script src="js/custom/custom.js"></script>
-	</body>
+	</nav>
+
+<!-- Services Section -->
+<div class="container my-5 pt-5">
+  <div class="row g-0 justify-content-center">
+
+    <!-- Card 1 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
+        <img src="img/What-We-Do-Capabilities/Die_Casting_2.jpg" class="card-img-top" alt="Die Casting">
+        <div class="card-body d-flex flex-column text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-fire"></i>
+          </div>
+          <h5 class="card-title">Fundición a presión</h5>
+          <p class="card-text">Máquinas de fundición a presión Prince con capacidades de 450 y 600 toneladas.</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalDieCasting">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
+        <img src="img/What-We-Do-Capabilities/Metal_Stamping_cap.jpg" class="card-img-top" alt="Metal Stamping">
+        <div class="card-body d-flex flex-column text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-wrench-adjustable"></i>
+          </div>
+          <h5 class="card-title">Estampado de metales</h5>
+          <p class="card-text">Todas las matrices de estampación están diseñadas, construidas y mantenidas internamente.</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalMetalStamping">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
+        <img src="img/What-We-Do-Capabilities/Fabrication.jpg" class="card-img-top" alt="Fabrication">
+        <div class="card-body d-flex flex-column text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Fabricación</h5>
+          <p class="card-text">Soldadura a medida y fabricación de producción.</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalFabrication">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+    
+	<!-- Card 4 -->
+     <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <div class="card service-card w-100">
+        <img src="img/What-We-Do-Capabilities/Eng1.jpg" class="card-img-top" alt="Engineering">
+       <div class="card-body d-flex flex-column text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Ingeniería</h5>
+          <p class="card-text">Temco ofrece ingeniería personalizada y diseño de nuevos productos respaldados por sus cincuenta años de experiencia como proveedor OEM para la industria del transporte y cumplimiento de la norma ISO 9001:2015.</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEngineering">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+
+<!-- Card 5 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="card service-card">
+        <img src="img/What-We-Do-Capabilities/product_testing_cap.jpg" class="card-img-top" alt="ProductTesting">
+        <div class="card-body text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Product Testing</h5>
+          <p class="card-text">Component and assembly endurance testing</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalProductTesting">Learn More</button>
+        </div>
+      </div>
+    </div>
+<!-- Card 6 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="card service-card">
+        <img src="img/What-We-Do-Capabilities/CNC_cap.jpg" class="card-img-top" alt="CNCMachining">
+        <div class="card-body text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Mecanizado CNC</h5>
+          <p class="card-text">El departamento de mecanizado CNC de Temco consta de nueve tornos y fresadoras</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalCNCMachining">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+	<!-- Card 7 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="card service-card">
+        <img src="img/What-We-Do-Capabilities/Welding_cap.jpg" class="card-img-top" alt="ProductionWelding">
+        <div class="card-body text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Soldadura de producción</h5>
+          <p class="card-text">Soldadura certificada con TIG y MIG</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalProductionWelding">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+	<!-- Card 8 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="card service-card">
+        <img src="img/What-We-Do-Capabilities/in_house_tooling_cap.jpg" class="card-img-top" alt="HouseTooling">
+        <div class="card-body text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Herramientas y prototipos internos</h5>
+          <p class="card-text">Temco cuenta con un personal de expertos fabricantes de herramientas y matrices que producen todas las herramientas y accesorios internamente para conceptos de prototipos y series de producción de alto rendimiento</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalHouseTooling">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+	<!-- Card 9 -->
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+    <div class="card service-card">
+        <img src="img/What-We-Do-Capabilities/tube_bending_cap.jpg" class="card-img-top" alt="TubeBending">
+        <div class="card-body text-center">
+          <div class="service-icon bg-warning rounded-circle mx-auto mb-3">
+            <i class="bi bi-tools"></i>
+          </div>
+          <h5 class="card-title">Doblado de tubos</h5>
+          <p class="card-text">Temco puede realizar operaciones secundarias a sus tubos en nuestras celdas de estampado, soldadura, CNC y ensamblaje.</p>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalTubeBending">Mas Informacion</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="modalDieCasting" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Detalles de fundición a presión</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+      <div class="modal-body">
+        <li>Diseño y fabricación de moldes de fundición a presión en nuestras instalaciones</li>
+        <li>Mantenimiento y reemplazo de matrices en nuestras instalaciones</li>
+        <li>Inyección en cámara fría con aleaciones de aluminio 369, 380, 413 y 518</li>
+        <li>Aleaciones adicionales según las necesidades del cliente</li>
+        <li>Capacidad de mecanizado y soldadura secundaria</li>
+        <li>Ensamblaje de precisión secundario disponible</li>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="modalMetalStamping" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+<div class="modal-header"><h5 class="modal-title">Detalles de Estampado Metálico</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+<div class="modal-body">
+<li>Alimentadores de bobinas</li>
+<li>Matrices progresivas, de piezas en blanco, de conformado, de embutido y de una sola operación</li>
+<li>Operaciones de ensamblaje tanto mecánicas como neumáticas</li>
+<li>Capacidad de prensa de torreta</li>
+</div>
+</div></div>
+</div>
+
+<div class="modal fade" id="modalFabrication" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+<div class="modal-header"><h5 class="modal-title">Detalles de Fabricación</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+<div class="modal-body">
+<li>Cizallamiento hasta 12 pies</li>
+<li>Operaciones de prensa plegadora hasta 10 pies</li>
+<li>Rodillo deslizante hasta 8.5 pies</li>
+<li>Prensa de torreta con bancada de 5'x8' pies</li>
+<li>Perfilado</li>
+<li>Instalación de accesorios de soldadura personalizados</li>
+<li>Doblado de tubos</li>
+<li>Rebordeado de tubos</li>
+<li>Fabricación de tanques</li>
+  </div></div>
+</div>
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/temco_hd_logo.png" alt="Temco Logo">
+	  <img src="img/made-in-the-usa-flag-small.jpg" alt="ISO 45001:2018 Certified"> <!-- NUEVO -->
+    </div>
+
+    <!-- Commitment -->
+    <div class="footer-section">
+      <h3>OUR COMMITMENT</h3>
+      <p>
+        We strive to deliver a level of service that exceeds the expectations of our customers. 
+        If you have any questions about our products or services, please do not hesitate to contact us.
+      </p>
+      <div class="iso-certifications">
+        <img src="img/VerisysISO _9001.png" alt="ISO 9001:2015">
+        <img src="img/VerisysISO _ 14001.png" alt="ISO 14001:2015">
+		 
+      </div>
+    </div>
+
+    <!-- Quality Policy -->
+    <div class="footer-section">
+      <h3>QUALITY POLICY</h3>
+      <p>
+        At Temco Engineered Products, Inc. we are committed to providing quality products 
+        and services on time that exceed the expectations of our customers.
+      </p>
+      <div class="footer-buttons">
+        <a href="termsconditions.html" class="btn-footer">TERMS & CONDITIONS</a>
+        <a href="purchasing_agent.html" class="btn-footer">PURCHASING AGENTS</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>CONTACT INFO</h3>
+      <p class="phone">1-800-275-0574 USA</p>
+      <p><strong>Address:</strong> Temco Engineered Products, Inc <br>
+      10240 SE Mather Road <br>
+      Clackamas, Oregon 97015 USA</p>
+     <a href="mailto:tomast@temcousa.com"> <p ><strong>Email:</strong > tomast@temcouusa.com</p></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Copyrights 2025 <span>Made By Temco Engineered</span> All rights reserved.</p>
+  </div>
+	</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</body>
 </html>

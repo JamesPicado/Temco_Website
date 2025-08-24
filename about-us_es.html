@@ -5,9 +5,277 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>TEMCOUSA | SOBRE NOSOTROS</title>
+		<title>TEMCOUSA | Sobre Nosotros </title>
 		<!-- All Stylesheets -->
 		<link href="css/all-stylesheets.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500italic,700,500,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">	
+    
+<style>
+	.modern-list-section {
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .modern-list-section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+	  margin-left:120px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .modern-list-section h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #fdb813;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .list-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 80px;
+      text-align: left;
+    }
+
+    .list-container ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+	  margin-left: 180px;
+    }
+
+    .list-container li {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .list-container li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #fdb813;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+      .list-container {
+        grid-template-columns: 1fr;
+      }
+
+      .modern-list-section h2 {
+        font-size: 2rem;
+      }
+    }
+	.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animaciones desde izquierda y derecha */
+.slide-in-left, .slide-in-right {
+  opacity: 0;
+  transform: translateX(100px);
+  animation: slideInRight 1s forwards;
+}
+
+.slide-in-left {
+  transform: translateX(-100px);
+  animation: slideInLeft 1s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.navbar-nav .nav-link {
+			font-weight: 500;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-nav .nav-link:hover {
+			color: #ffc107;
+		}
+
+		.navbar {
+			background-color: rgba(0, 0, 0, 0.6);
+			/* fondo con transparencia */
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.form-select {
+			width: auto;
+		}
+
+		.main-navbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			/* oscuro con transparencia */
+			z-index: 9999;
+			padding: 10px 0;
+		}
+
+		.navbar-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.navbar-logo img {
+			height: 60px;
+		}
+
+		.navbar-menu {
+			list-style: none;
+			display: flex;
+			gap: 30px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar-menu li a {
+			color: white;
+			text-decoration: none;
+			font-weight: 600;
+			transition: color 0.3s ease;
+		}
+
+		.navbar-menu li a:hover,
+		.navbar-menu li a.active {
+			color: #ffc107;
+			/* amarillo */
+		}
+
+		.navbar-lang select {
+			background-color: white;
+			color: rgb(0, 0, 0);
+			border: 1px solid white;
+			padding: 4px 8px;
+			border-radius: 4px;
+		}
+		.about-us {
+  margin-top: 90px;
+}
+.footer {
+  background-color: #111;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.iso-certifications img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.iso-certifications img:hover {
+  transform: scale(1.05);
+}
+.iso-certifications {
+  flex-direction: column; /* Apila las imágenes una debajo de la otra */
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 10px; /* Espaciado entre imágenes */
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.btn-footer {
+  display: inline-block;
+  background: #ffcc00;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-footer:hover {
+background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.phone {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.footer-bottom span {
+  color: #ffcc00;
+}
+</style>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -18,147 +286,123 @@
 	<body>
 		<!-- NAVIGATION STARTS
 			========================================================================= -->   
-		<nav id="navigation">
-			<div class="navbar navbar-inverse" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<!--  Logo Starts -->
-						<a class="navbar-brand" href="index_es.html"><img src="img/temco_hd_logo.png" width="128" height="100" alt=""></a>
-						<!-- Logo Ends -->                        
-					</div>
-					<div class="collapse navbar-collapse">
-						
-						<ul class="nav navbar-nav navbar-left pull-right">
-							<li><a href="index_es.html" class="external">INICIO</a></li>
-							<li class="current"><a href="about-us_es.html" class="external">SOBRE NOSOTROS</a></li>
-							<li><a href="capabilities_es.html" class="external">CAPACIDADES</a></li>
-							<li><a href="products_es.html" class="external">PRODUCTOS</a></li>
-							<li><a href="contact_es.php" class="external">CONTACTO</a></li>
-							<li><select name="ELEGIR" value="ELEGIR" onchange="document.location.href=this.value">
-
-								<option selected disabled>Idioma</option>
-								
-								<option value="about-us.html">Inglés</option>
-								<option value="about-us_es.html">Español</option>
-							
-								
-								</select></li>
-
-							<!-- <span class="en">Inglés</span>
-							<input type="checkbox" class="check" checked>
-							<span class="es">Español</span> -->
-						</ul>
-					</div>
-					<!--/.nav-collapse--> 
-				</div>
+			<nav class="main-navbar">
+		<div class="navbar-container">
+			<!-- Logo a la izquierda -->
+			<div class="navbar-logo">
+				<a href="index.html">
+					<img src="img/temco_hd_logo.png" alt="TEMCO Logo">
+				</a>
 			</div>
-		</nav>
+
+			<!-- Menú centrado -->
+			<ul class="navbar-menu">
+				<li><a href="index_es.html">Inicio</a></li>
+				<li><a href="about-us_es.html" class="active">Sobre Nosotros</a></li>
+				<li><a href="capabilities_es.html">Capacidades</a></li>
+				<li><a href="products_es.html">Productos</a></li>
+				<li><a href="contact_es.html">Contacto</a></li>
+				<div class="btn btn-warning" style="margin-top: -5.5px; font-size: 14px; "> <a href="die_casting.html">DIE CASTING</a></div>
+			</ul>
+
+			<!-- Selector de idioma a la derecha -->
+			<div class="navbar-lang">
+				<select onchange="document.location.href=this.value">
+					<option selected disabled>Idioma</option>
+					<option value="about-us.html">Ingles</option>
+					<option value="about-us_es.html">Espanol</option>
+				</select>
+			</div>
+			
+		</div>
+	</nav>
+		
 		<!-- /. NAVIGATION ENDS
 			========================================================================= -->
 		<!-- ABOUT US PAGE CONTENTS STARTS
 			========================================================================= -->
 		<div class="about-us">
 			<!-- ABOUT US BANNER STARTS -->
-			<div class="inner-banner  parallax-1">
-				<div class="header">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12">
-								<h1><span>SOBRE NOSOTROS</span></h1>
-								<ol class="breadcrumb">
-									<li><a href="index.html">Inicio</a></li>
-									<li class="active">Nosotros</li>
-								</ol>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- ABOUT US BANNER ENDS -->		
 			<!-- ABOUT US INTRO STARTS -->
 			<div class="container contents intro">
 				<div class="row">
-					<div class="col-lg-12">
-						<h1>Establecido  <span class="yellow-text">En 1966 como proveedor OEM</span><br>A los fabricantes de camiones pesados.</h1>
-						<div class="doubleline"></div>
-						<div class="detail">Desde 1966, Temco Engineered Products, Inc. ha diseñado y fabricado una línea completa de componentes de tanques para la industria del transporte, incluidos los OEM de camiones de América del Norte. Temco se ha convertido en un experto internacional en tanques de combustible y componentes de tanques de combustible. Temco cuenta con la certificación ISO 9001:2015 para cumplir con los requisitos de calidad de nuestros clientes. Temco ofrece entregas a tiempo, tiempos de entrega cortos y productos de calidad que cumplen con los requisitos federales 393.67 para nuestros clientes.
-						</div>
-						<br>
-						<div class="detail">Temco continúa suministrando el 90 % de los componentes del tanque de combustible a la industria de camiones pesados de América del Norte. Nuestra experiencia en aluminio, acero y acero inoxidable ha permitido una rápida expansión a nuevos mercados, incluidos los mercados médico, agrícola y marítimo, por nombrar algunos.
-						</div>
-						
-					</div>
-				</div>
+  <!-- Texto a la izquierda -->
+  <div class="row" style="display: flex; align-items: center;">
+  <!-- Texto a la izquierda -->
+  <div class="row" style="display: flex; align-items: center;">
+  <!-- Texto a la izquierda -->
+  <div class="col-md-8 slide-in-left" >
+    <h1>Establecida <span class="yellow-text">En 1966 como proveedor OEM</span><br>Para fabricantes de camiones de servicio pesado.</h1>
+    <div class="doubleline"></div>
+    <div class="detail">
+     Desde 1966, Temco Engineered Products, Inc. ha diseñado y fabricado una línea completa de componentes para tanques de combustible para la industria del transporte, incluyendo a los fabricantes de equipos originales (OEM) de camiones de Norteamérica. Temco se ha convertido en un experto internacional en tanques de combustible y sus componentes. Temco cuenta con la certificación ISO 9001:2015 para satisfacer las exigencias de calidad de nuestros clientes. Temco ofrece entregas puntuales, plazos de entrega cortos y productos de calidad que cumplen con los requisitos federales 393.67.
+	</div>
+    <br>
+    <div class="detail">
+      Temco continúa suministrando el 90% de los componentes de tanques de combustible a la industria norteamericana de camiones pesados. Nuestra experiencia en aluminio, acero y acero inoxidable nos ha permitido una rápida expansión a nuevos mercados, como el médico, el agrícola y el marítimo, entre otros.
+	</div>
+  </div>
+
+  <!-- Imagen a la derecha, más alineada a la derecha -->
+  <div class="col-md-6 d-flex justify-content-end align-items-center" style="text-align: right;">
+    <img src="img/imagen_temco.png" alt="Temco Manufacturing" style="max-width: 90%; height: auto; border-radius: 5px;">
+  </div>
+</div>
+</div>
+</div>
+<div class="row">
+	<!-- Imagen a la derecha, más alineada a la derecha -->
+  <div class="col-md-6 d-flex justify-content-end align-items-center" style="text-align: left;">
+    <img src="img/imagen_temco_2.png" alt="Temco Manufacturing" style="max-width: 90%; height: auto; border-radius: 5px;">
+  </div>
+  <br><br><br>
+  <!-- Texto a la izquierda -->
+  <div class="row" style="display: flex; align-items: center;">
+  <!-- Texto a la izquierda -->
+  <div class="row" style="display: flex; align-items: center;">
+  <!-- Texto a la izquierda -->
+   <br>
+  <div class="col-md-12 slide-in-right">
+    <div class="detail ">
+      Nos enorgullecemos de ser una empresa que ofrece servicios integrales de diseño y fabricación de productos. El compromiso de Temco con la calidad y la integración vertical garantiza precios competitivos, innovación constante y control de calidad desde la materia prima hasta el producto terminado.
+	</div>
+    <br>
+    <div class="detail">
+      Nuestra filosofía es seguir desarrollando nuestro negocio basándonos en una cultura de superar las expectativas de nuestros clientes. Siempre aspiramos a ser su proveedor predilecto; si se nos da la oportunidad, comprenderá por qué esto se ha convertido en el caso de nuestros clientes actuales. Temco Engineered Products, Inc. tiene su sede en Clackamas, Oregón. Todos nuestros componentes se fabrican con orgullo en EE. UU.
+	 </div>
+  </div>
+  
+
+  
+</div>
+</div>
+</div>
 				<br>
 				
 			
 						<div class="row">
-							<div class="col-lg-12">
-								
-								<div class="detail">Temco ofrece más de 50 000 pies cuadrados de capacidades de fabricación, que incluyen:</div>
-								<div class="doubleline"></div>
 							
-							</div>
-							<div class="row">
-								<div class="col-md-4 col-md-push-3 ">
-								  <div class="info" style="text-align: justify;">
-									<div>
-									 <li><b>Fundición a presión</b></p>
-									</div>
-									<div>
-										<li><b>Mecanizado CNC</b></p>
-									</div>
-									<div>
-										<li><b>Estampado</b></p>
-									  </div>
-									  <div>
-										<li><b>Fabricación</b></p>
-									  </div>
-									  <div>
-										<li><b>Soldadura de precisión Mig</b></p>
-									  </div>
-								
-
-								  </div>
-								</div>
-						
-								<div class="col-md-7 col-md-push-3" >
-								  <div class="info" style="text-align: left;">
-									<div>
-										<li><b>Soldadura Tig de Precisión</b></p>
-									  </div>
-									  <div>
-										<li><b>Estampación</b></p>
-									  </div>
-									  <div>
-										<li><b>Creación rápida de prototipos</b></p>
-									  </div>	
-									  <div>
-										<li><b>Pruebas de producto</b></p>
-									  </div>
-									  <div>
-										<li><b>Montaje de precisión</b></p>
-									  </div>
-									  
-													
-												</div>
-												</div>
-								
-								<div class="col-lg-12">
-								
-									<div class="doubleline"></div>
-									<div class="detail">Estamos orgullosos de ser una empresa de diseño y fabricación de productos de servicio completo. El compromiso de Temco con la calidad y la integración vertical garantiza precios competitivos, innovación constante y control de calidad desde la materia prima hasta los productos terminados.</div>
-									<br><br>
-								</div>
-								<div class="col-lg-12">
-									<div class=""></div>
-									<div class="detail">Nuestra filosofía es continuar desarrollando nuestro negocio basado en una cultura de superar las expectativas de nuestros clientes. Siempre aspiramos a ser su proveedor preferido; dada la oportunidad, verá por qué esto se ha convertido en el caso de nuestros clientes existentes. Temco Engineered Products, Inc. tiene su sede en Clackamas, Oregón. Todos nuestros componentes están fabricados con orgullo en los Estados Unidos.</div>
-									<br><br>
-								</div>
-						</div>
-						
-						
+						<section class="modern-list-section">
+    <h2>Temco ofrece más de 50.000 pies cuadrados de capacidades de fabricación que incluyen:</h2>
+    <div class="list-container">
+      <ul>
+        <li>Fundición a presión</li>
+        <li>Mecanizado CNC</li>
+        <li>Estampado</li>
+        <li>Fabricación</li>
+        <li>Soldadura MIG de precisión</li>
+      </ul>
+      <ul>
+        <li>Soldadura TIG de precisión</li>
+        <li>Herramientas</li>
+        <li>Creación rápida de prototipos</li>
+        <li>Pruebas de productos</li>
+        <li>Ensamblaje de precisión</li>
+      </ul>
+    </div>
+  </section>
 						<!-- <ul class="nav1 navbar-collapse" role="tablist">
 							<li role="presentation" class="active">
 								<a href="#trends" aria-controls="trends" role="tab" data-toggle="tab">
@@ -184,85 +428,59 @@
 			========================================================================= -->
 		<!-- SOCIAL ICONS STARTS
 			========================================================================= -->
-			<div class="dark-grey-2 social-icons">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-sm-3 logo"><img src="img/temco_hd_logo.png" width="128" height="100" alt="" ></div>
-					</div>
-				</div>
-			</div>
+			
 		<!-- /. SOCIAL ICONS ENDS
 			========================================================================= -->
-	<!-- FOOTER STARTS
+		<!-- FOOTER STARTS
 			========================================================================= -->
-			<footer class="dark-grey-3">
-				<div class="container">
-					<div class="row">
-						<!-- About Us Starts -->
-						
-						<div class="col-lg-3 col-md-3 col-sm-6 about-us">
-							<h1>Nuestro compromiso</h1>
-							<div class="description">Nos esforzamos por ofrecer un nivel de servicio que supere las expectativas de nuestros clientes.<br>
-								<br>Si tiene alguna pregunta sobre nuestros productos o servicios, no dude en ponerse en contacto con nosotros.</div>
-							<!-- <div class="button"><a href=""></a></div> -->
-						</div>
-						
-						!asad
-						
-						<!-- Fliker Starts -->
-					<div class="col-lg-2 col-md-8 col-sm-5 flickr">
-						<img src="img/ISO_logo_small.jpg" alt="">
-						<img src="img/Temco_Website_Photos/ISO_14001_2015_company.jpg" alt="">
-						<br><br>
-						<img src="img/made-in-the-usa-flag-small.jpg" alt="">
-												
-					</div>
-					
-					<div class="col-lg-4 col-md-3 col-sm-6 about-us">
-						<h1>POLÍTICA DE CALIDAD</h1>
-						<div class="description">En Temco Engineered Products, Inc. estamos comprometidos a brindar productos y servicios de calidad a tiempo que superen las expectativas de nuestros clientes.</div>
-						
-						<div class="button">
-							<a href="coming-soon_es.html">Términos y Condiciones</a>
-							<a href="purchasing_agent_es.html">Agente de compras</a>
-						</div>
-						
-					</div>
-					<!-- Fliker Ends -->
-						<!-- Contact Info Starts -->
-						<div class="col-lg-3 col-md-3 col-sm-6 contact-info">
-							<h1>Información de ContactO</h1>
-							<address>
-								<div class="phone">1-800-275-0574 USA</div>
-							</address>
-							<address>
-								<strong>Dirección:</strong><br>
-								Temco Engineered Products, Inc <br>
-								10240 SE Mather Road <br>
-								Clackamas, Oregon 97015 USA <br>                       
-							</address>
-							<address>
-								<strong>Correo: </strong><br>
-								<a href="mailto:tomast@temcousa.com">tomast@temcousa.com</a>
-							</address>
-						</div>
-						<!-- Contact Info Ends -->
-					</div>
-				</div>
-			</footer>
-			<!-- /. FOOTER ENDS
-				========================================================================= -->
-			<!-- COPYRIGHT STARTS
-				========================================================================= -->
-			<div class="dark-grey-2 copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">© derechos de autor 2021 <a href="">Hecho por Temco Engineered</a>  Reservados todos los derechos.</div>
-					</div>
-				</div>
-			</div>
-			<!-- /. COPYRIGHT ENDS
-			========================================================================= -->
+			<footer class="footer">
+  	<div class="footer-container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="img/temco_hd_logo.png" alt="Temco Logo">
+	  <img src="img/made-in-the-usa-flag-small.jpg" alt="ISO 45001:2018 Certified"> <!-- NUEVO -->
+    </div>
+
+    <!-- Commitment -->
+    <!-- Commitment -->
+    <div class="footer-section">
+      <h3>NUESTRA COMPROMISO</h3>
+      <p>
+        Nos esforzamos por ofrecer un nivel de servicio que supere las expectativas de nuestros clientes. Si tiene alguna pregunta sobre nuestros productos o servicios, no dude en contactarnos.
+      </p>
+      <div class="iso-certifications">
+        <img src="img/VerisysISO _9001.png" alt="ISO 9001:2015">
+        <img src="img/VerisysISO _ 14001.png" alt="ISO 14001:2015">
+		 
+      </div>
+    </div>
+
+    <!-- Quality Policy -->
+    <div class="footer-section">
+      <h3>POLÍTICA DE CALIDAD</h3>
+      <p> En Temco Engineered Products, Inc. nos comprometemos a proporcionar productos y servicios de calidad a tiempo, que superen las expectativas de nuestros clientes.</p>
+      <div class="footer-buttons">
+        <a href="termsconditions_es.html" class="btn-footer">Terminos y condiciones</a>
+        <a href="purchasing_agent.html" class="btn-footer">Agente de compras</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>INFORMACIÓN DE CONTACTO</h3>
+      <p class="phone">1-800-275-0574 USA</p>
+      <p><strong>Direccion:</strong> Temco Engineered Products, Inc <br>
+      10240 SE Mather Road <br>
+      Clackamas, Oregon 97015 USA</p>
+     <a href="mailto:tomast@temcousa.com"> <p ><strong>Correo:</strong > tomast@temcouusa.com</p></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Derechos de autor 2025 <span>Hecho por Temco Engineered</span> Reservados todos los derechos.</p>
+  </div>
+	</footer>
+		
 		<!-- TO TOP STARTS
 			========================================================================= -->
 		<a href="#" class="scrollup">Scroll</a>      
@@ -417,5 +635,23 @@
 		<script src="js/overlay-resizemenu/js/classie.js"></script>
 		<!-- Custom JS -->
 		<script src="js/custom/custom.js"></script>
+
+		<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".fade-in-up");
+
+    const reveal = () => {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", reveal);
+    reveal(); // Inicial para elementos en pantalla
+  });
+</script>
 	</body>
 </html>
